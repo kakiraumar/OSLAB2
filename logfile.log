@@ -1,2 +1,715 @@
 Лабораторная работа №2
 Какира Умар 3343
+
+umar@numbat:~$ date
+Sun  4 May 18:48:26 UTC 2025
+
+
+
+umar@numbat:~$ lscpu
+Architecture:             aarch64
+  CPU op-mode(s):         64-bit
+  Byte Order:             Little Endian
+CPU(s):                   4
+  On-line CPU(s) list:    0-3
+Vendor ID:                Apple
+  Model name:             -
+    Model:                0
+    Thread(s) per core:   1
+    Core(s) per cluster:  4
+    Socket(s):            -
+    Cluster(s):           1
+    Stepping:             0x0
+    BogoMIPS:             48.00
+    Flags:                fp asimd evtstrm aes pmull sha1 sha2 crc
+                          32 atomics fphp asimdhp cpuid asimdrdm j
+                          scvt fcma lrcpc dcpop sha3 asimddp sha51
+                          2 asimdfhm dit uscat ilrcpc flagm ssbs s
+                          b paca pacg dcpodp flagm2 frint bf16
+NUMA:                     
+  NUMA node(s):           1
+  NUMA node0 CPU(s):      0-3
+Vulnerabilities:          
+  Gather data sampling:   Not affected
+  Itlb multihit:          Not affected
+  L1tf:                   Not affected
+  Mds:                    Not affected
+  Meltdown:               Not affected
+  Mmio stale data:        Not affected
+  Reg file data sampling: Not affected
+  Retbleed:               Not affected
+  Spec rstack overflow:   Not affected
+  Spec store bypass:      Mitigation; Speculative Store Bypass dis
+                          abled via prctl
+  Spectre v1:             Mitigation; __user pointer sanitization
+  Spectre v2:             Not affected
+  Srbds:                  Not affected
+  Tsx async abort:        Not affected
+
+
+
+
+umar@numbat:~$ free -h
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       2.8Gi       206Mi       181Mi       1.2Gi       1.0Gi
+Swap:          3.6Gi        12Mi       3.6Gi
+
+
+
+
+lsblk
+NAME                      MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0                       7:0    0     4K  1 loop /snap/bare/5
+loop1                       7:1    0  68.9M  1 loop /snap/core22/1912
+loop2                       7:2    0 228.4M  1 loop /snap/firefox/6098
+loop3                       7:3    0 493.5M  1 loop /snap/gnome-42-2204/201
+loop4                       7:4    0  91.7M  1 loop /snap/gtk-common-themes/1535
+loop5                       7:5    0  44.3M  1 loop /snap/snapd/24509
+loop6                       7:6    0 204.3M  1 loop /snap/thunderbird/722
+loop7                       7:7    0  68.9M  1 loop /snap/core22/1966
+sda                         8:0    0  37.6G  0 disk 
+├─sda1                      8:1    0     1G  0 part /boot/efi
+├─sda2                      8:2    0     2G  0 part /boot
+└─sda3                      8:3    0  34.6G  0 part 
+  └─ubuntu--vg-ubuntu--lv 252:0    0  17.3G  0 lvm  /
+sr0                        11:0    1  58.5M  0 rom  /media/umar/VBox_GAs_7.1.8
+
+
+
+
+umar@numbat:~$ ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host noprefixroute 
+       valid_lft forever preferred_lft forever
+2: enp0s8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:af:6a:07 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s8
+       valid_lft 84577sec preferred_lft 84577sec
+    inet6 fd17:625c:f037:2:2e94:9914:eac7:eae5/64 scope global temporary dynamic 
+       valid_lft 86002sec preferred_lft 14002sec
+    inet6 fd17:625c:f037:2:a00:27ff:feaf:6a07/64 scope global dynamic mngtmpaddr 
+       valid_lft 86002sec preferred_lft 14002sec
+    inet6 fe80::a00:27ff:feaf:6a07/64 scope link 
+       valid_lft forever preferred_lft forever
+
+-------------------------Задание 1----------------------------
+1.1
+umar@numbat:~$ (sleep 30; notify-send "Задание 1 завершено") & sleep 40 & sleep 50 &
+[1] 15528
+[2] 15529
+[3] 15530
+
+
+
+umar@numbat:~$ date && jobs
+Sun  4 May 19:04:46 UTC 2025
+[1]   Done                    ( sleep 30; notify-send "Задание 1 завершено" )
+[2]-  Done                    sleep 40
+[3]+  Running                 sleep 50 &
+
+
+umar@numbat:~$ date && jobs
+Sun  4 May 19:06:24 UTC 2025
+[3]+  Done                    sleep 50
+
+
+umar@numbat:~$ date && jobs
+Sun  4 May 19:07:28 UTC 2025
+
+
+
+
+umar@numbat:~$ sleep 30 & sleep 40 & sleep 50 &
+[1] 15643
+[2] 15644
+[3] 15645
+
+umar@numbat:~$ date && jobs
+Sun  4 May 19:10:32 UTC 2025
+[1]   Done                    sleep 30
+[2]-  Done                    sleep 40
+[3]+  Done                    sleep 50
+
+
+
+umar@numbat:~$ kill %1 - отменяем одно из невыполненных
+umar@numbat:~$ date && jobs
+Sun  4 May 19:15:55 UTC 2025
+[1]   Terminated              sleep 30
+[2]-  Running                 sleep 40 &
+[3]+  Running                 sleep 50 &
+
+
+
+
+
+1.2
+
+
+umar@numbat:~$ nohup sleep 600 &
+[5] 15833
+umar@numbat:~$ nohup: ignoring input and appending output to 'nohup.out'
+
+
+umar@numbat:~$ date && ps aux | grep sleep
+Sun  4 May 19:19:10 UTC 2025
+umar       15816  0.0  0.0   5256  1792 pts/0    S    19:16   0:00 sleep 600
+umar       15833  0.0  0.0   5256  1792 pts/0    S    19:17   0:00 sleep 600
+umar       15877  0.0  0.0   6140  2048 pts/0    S+   19:19   0:00 grep --color=auto sleep
+
+umar@numbat:~$ date && ps aux | grep sleep
+Sun  4 May 19:20:09 UTC 2025
+umar       15816  0.0  0.0   5256  1792 pts/0    S    19:16   0:00 sleep 600
+umar       15833  0.0  0.0   5256  1792 pts/0    S    19:17   0:00 sleep 600
+umar       15906  0.0  0.0   6140  2048 pts/0    S+   19:20   0:00 grep --color=auto sleep
+
+umar@numbat:~$ kill 15816
+umar@numbat:~$ 
+[4]-  Terminated              nohup sleep 600
+umar@numbat:~$ date && ps aux | grep sleep
+Sun  4 May 19:22:58 UTC 2025
+umar       15833  0.0  0.0   5256  1792 pts/0    S    19:17   0:00 sleep 600
+umar       15976  0.0  0.0   6140  2048 pts/0    S+   19:22   0:00 grep --color=auto sleep
+
+
+
+
+1.3
+
+
+umar@numbat:~$ date && ps aux | grep bash
+Sun  4 May 19:24:20 UTC 2025
+umar       12003  0.0  0.1   8632  4992 pts/0    Ss   18:24   0:00 bash
+umar       16016  0.0  0.0   6140  2048 pts/0    S+   19:24   0:00 grep --color=auto bash
+umar@numbat:~$ date && ps -o uid= -p 8632
+Sun  4 May 19:25:32 UTC 2025
+
+
+
+umar@numbat:~$ date && cat /etc/passwd
+Sun  4 May 19:26:44 UTC 2025
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+_apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+systemd-timesync:x:997:997:systemd Time Synchronization:/:/usr/sbin/nologin
+dhcpcd:x:100:65534:DHCP Client Daemon,,,:/usr/lib/dhcpcd:/bin/false
+messagebus:x:101:102::/nonexistent:/usr/sbin/nologin
+systemd-resolve:x:992:992:systemd Resolver:/:/usr/sbin/nologin
+pollinate:x:102:1::/var/cache/pollinate:/bin/false
+polkitd:x:991:991:User for polkitd:/:/usr/sbin/nologin
+syslog:x:103:104::/nonexistent:/usr/sbin/nologin
+uuidd:x:104:105::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:105:107::/nonexistent:/usr/sbin/nologin
+landscape:x:106:108::/var/lib/landscape:/usr/sbin/nologin
+fwupd-refresh:x:989:989:Firmware update daemon:/var/lib/fwupd:/usr/sbin/nologin
+sshd:x:107:65534::/run/sshd:/usr/sbin/nologin
+umar:x:1000:1000: umar:/home/umar:/bin/bash
+usbmux:x:108:46:usbmux daemon,,,:/var/lib/usbmux:/usr/sbin/nologin
+rtkit:x:109:109:RealtimeKit,,,:/proc:/usr/sbin/nologin
+dnsmasq:x:999:65534:dnsmasq:/var/lib/misc:/usr/sbin/nologin
+kernoops:x:110:65534:Kernel Oops Tracking Daemon,,,:/:/usr/sbin/nologin
+whoopsie:x:111:111::/nonexistent:/bin/false
+systemd-oom:x:988:988:systemd Userspace OOM Killer:/:/usr/sbin/nologin
+tss:x:112:113:TPM software stack,,,:/var/lib/tpm:/bin/false
+avahi:x:113:116:Avahi mDNS daemon,,,:/run/avahi-daemon:/usr/sbin/nologin
+saned:x:114:117::/var/lib/saned:/usr/sbin/nologin
+nm-openvpn:x:115:118:NetworkManager OpenVPN,,,:/var/lib/openvpn/chroot:/usr/sbin/nologin
+colord:x:116:119:colord colour management daemon,,,:/var/lib/colord:/usr/sbin/nologin
+sssd:x:117:120:SSSD system user,,,:/var/lib/sss:/usr/sbin/nologin
+speech-dispatcher:x:118:29:Speech Dispatcher,,,:/run/speech-dispatcher:/bin/false
+cups-pk-helper:x:119:121:user for cups-pk-helper service,,,:/nonexistent:/usr/sbin/nologin
+geoclue:x:120:122::/var/lib/geoclue:/usr/sbin/nologin
+cups-browsed:x:121:121::/nonexistent:/usr/sbin/nologin
+hplip:x:122:7:HPLIP system user,,,:/run/hplip:/bin/false
+gnome-remote-desktop:x:987:987:GNOME Remote Desktop:/var/lib/gnome-remote-desktop:/usr/sbin/nologin
+gnome-initial-setup:x:123:65534::/run/gnome-initial-setup/:/bin/false
+gdm:x:124:124:Gnome Display Manager:/var/lib/gdm3:/bin/false
+vboxadd:x:996:1::/var/run/vboxadd:/bin/false
+
+
+
+umar@numbat:~$ date && ps -eo pid,comm | sort -n
+Sun  4 May 19:28:05 UTC 2025
+[5]+  Done                    nohup sleep 600
+    PID COMMAND
+      1 systemd
+      2 kthreadd
+      3 pool_workqueue_release
+      4 kworker/R-rcu_g
+      5 kworker/R-rcu_p
+      6 kworker/R-slub_
+      7 kworker/R-netns
+      8 kworker/0:0-events
+     10 kworker/0:0H-events_highpri
+     12 kworker/R-mm_pe
+     13 rcu_tasks_kthread
+     14 rcu_tasks_rude_kthread
+     15 rcu_tasks_trace_kthread
+     16 ksoftirqd/0
+     17 rcu_preempt
+     18 migration/0
+     19 idle_inject/0
+     20 cpuhp/0
+     21 cpuhp/1
+     22 idle_inject/1
+     23 migration/1
+     24 ksoftirqd/1
+     26 kworker/1:0H-kblockd
+     27 cpuhp/2
+     28 idle_inject/2
+     29 migration/2
+     30 ksoftirqd/2
+     32 kworker/2:0H-kblockd
+     33 cpuhp/3
+     34 idle_inject/3
+     35 migration/3
+     36 ksoftirqd/3
+     38 kworker/3:0H-kblockd
+     39 kdevtmpfs
+     40 kworker/R-inet_
+     43 kauditd
+     44 khungtaskd
+     45 oom_reaper
+     46 kworker/R-write
+     47 kcompactd0
+     48 ksmd
+     49 khugepaged
+     50 kworker/R-kinte
+     51 kworker/R-kbloc
+     52 kworker/R-blkcg
+     53 kworker/R-tpm_d
+     54 kworker/R-ata_s
+     55 kworker/R-md
+     56 kworker/R-md_bi
+     57 kworker/R-edac-
+     58 kworker/R-devfr
+     59 watchdogd
+     61 kworker/0:1H-kblockd
+     63 kswapd0
+     64 ecryptfs-kthread
+     65 kworker/R-kthro
+     67 scsi_eh_0
+     68 kworker/R-scsi_
+     70 kworker/2:1H-kblockd
+     71 kworker/1:1H-kblockd
+     73 kworker/3:1H
+     74 kworker/R-mld
+     75 kworker/R-ipv6_
+     84 kworker/R-kstrp
+     91 kworker/R-charg
+    192 kworker/R-kdmfl
+    218 kworker/R-raid5
+    268 jbd2/dm-0-8
+    269 kworker/R-ext4-
+    340 systemd-journal
+    364 kworker/R-kmpat
+    365 kworker/R-kmpat
+    392 multipathd
+    416 systemd-udevd
+    431 psimon
+    582 irq/15-vmwgfx
+    588 kworker/R-ttm
+    722 jbd2/sda2-8
+    723 kworker/R-ext4-
+    757 systemd-network
+    804 systemd-oomd
+    818 systemd-resolve
+    827 systemd-timesyn
+    856 kworker/R-cfg80
+    910 avahi-daemon
+    911 dbus-daemon
+    916 gnome-remote-de
+    930 polkitd
+    935 power-profiles-
+    948 snapd
+    956 accounts-daemon
+    972 switcheroo-cont
+    995 systemd-logind
+    996 udisksd
+   1022 rsyslogd
+   1049 avahi-daemon
+   1057 NetworkManager
+   1065 wpa_supplicant
+   1106 ModemManager
+   1391 cupsd
+   1403 unattended-upgr
+   9842 kworker/R-iprt-
+   9858 VBoxDRMClient
+   9861 VBoxService
+  10114 cups-browsed
+  10116 cron
+  10121 kerneloops
+  10130 kerneloops
+  10134 gdm3
+  10147 psimon
+  10153 kworker/1:3-events
+  10178 rtkit-daemon
+  10259 colord
+  10299 upowerd
+  10572 kworker/u9:1-ttm
+  10609 gdm-session-wor
+  10620 systemd
+  10623 (sd-pam)
+  10632 pipewire
+  10633 pipewire
+  10634 ubuntu-report
+  10635 wireplumber
+  10637 pipewire-pulse
+  10638 gnome-keyring-d
+  10645 dbus-daemon
+  10684 gdm-wayland-ses
+  10689 gnome-session-b
+  10746 gcr-ssh-agent
+  10747 gnome-session-c
+  10763 gvfsd
+  10769 gvfsd-fuse
+  10771 gnome-session-b
+  10803 at-spi-bus-laun
+  10804 gnome-shell
+  10817 dbus-daemon
+  10885 at-spi2-registr
+  10899 xdg-permission-
+  10901 gnome-shell-cal
+  10914 evolution-sourc
+  10923 gjs
+  10929 ibus-daemon
+  10937 gsd-a11y-settin
+  10938 gsd-color
+  10939 gsd-datetime
+  10943 gsd-housekeepin
+  10944 gsd-keyboard
+  10948 gsd-media-keys
+  10951 gsd-power
+  10953 gsd-print-notif
+  10954 gsd-rfkill
+  10955 gsd-screensaver
+  10958 gsd-sharing
+  10960 gsd-smartcard
+  10963 gsd-sound
+  10964 gsd-wacom
+  10980 evolution-alarm
+  11000 gsd-disk-utilit
+  11072 gvfs-udisks2-vo
+  11113 ibus-dconf
+  11118 ibus-extension-
+  11131 ibus-portal
+  11153 gsd-printer
+  11155 gvfs-goa-volume
+  11163 goa-daemon
+  11179 goa-identity-se
+  11185 gvfs-afc-volume
+  11192 gvfs-gphoto2-vo
+  11195 evolution-calen
+  11202 gvfs-mtp-volume
+  11208 Xwayland
+  11215 evolution-addre
+  11249 ibus-engine-sim
+  11279 gvfsd-metadata
+  11280 gvfsd-trash
+  11302 dconf-service
+  11310 xdg-desktop-por
+  11315 xdg-document-po
+  11324 fusermount3
+  11329 gjs
+  11378 tracker-miner-f
+  11379 xdg-desktop-por
+  11411 gsd-xsettings
+  11417 gjs
+  11441 xdg-desktop-por
+  11468 ibus-x11
+  11474 mutter-x11-fram
+  11480 VBoxClient
+  11483 VBoxClient
+  11512 VBoxClient
+  11513 VBoxClient
+  11752 update-notifier
+  11809 code
+  11814 code
+  11815 code
+  11817 code
+  11836 chrome_crashpad
+  11852 code
+  11857 code
+  11880 code
+  11911 code
+  11912 code
+  11931 code
+  11996 gnome-terminal-
+  12003 bash
+  12194 kworker/u9:0
+  12343 snap
+  13061 kworker/3:0-cgwb_release
+  13131 kworker/2:0-mm_percpu_wq
+  13138 firefox
+  13296 Socket Process
+  13322 Privileged Cont
+  13327 RDD Process
+  13651 WebExtensions
+  13987 Utility Process
+  13998 Isolated Web Co
+  14004 Isolated Web Co
+  14116 Web Content
+  14187 gnome-control-c
+  14243 kworker/1:0-events
+  14340 Web Content
+  15217 Web Content
+  15292 fwupd
+  15303 kworker/2:2-events
+  15437 kworker/3:1-events
+  15675 kworker/u8:2-events_unbound
+  15779 kworker/u8:3-flush-252:0
+  15910 kworker/0:2-cgroup_destroy
+  15929 kworker/u8:1-events_power_efficient
+  16093 kworker/u8:0-events_unbound
+  16094 kworker/u8:4-events_unbound
+  16115 ps
+  16116 sort
+
+
+
+
+1.4
+
+umar@numbat:~$ date && ps aux | grep '^root' | head -n 10
+Sun  4 May 19:29:32 UTC 2025
+root           1  0.0  0.3  22996 12000 ?        Ss   18:21   0:02 /sbin/init
+root           2  0.0  0.0      0     0 ?        S    18:21   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    18:21   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   18:21   0:00 [kworker/R-rcu_g]
+root           5  0.0  0.0      0     0 ?        I<   18:21   0:00 [kworker/R-rcu_p]
+root           6  0.0  0.0      0     0 ?        I<   18:21   0:00 [kworker/R-slub_]
+root           7  0.0  0.0      0     0 ?        I<   18:21   0:00 [kworker/R-netns]
+root           8  0.0  0.0      0     0 ?        I    18:21   0:00 [kworker/0:0-events]
+root          10  0.0  0.0      0     0 ?        I<   18:21   0:00 [kworker/0:0H-events_highpri]
+root          12  0.0  0.0      0     0 ?        I<   18:21   0:00 [kworker/R-mm_pe]
+umar@numbat:~$ date && ps aux | grep '^user' | head -n 10
+Sun  4 May 19:30:15 UTC 2025
+
+
+
+
+
+1.5
+umar@numbat:~$ cat /proc/2238/status | grep -E "Name|PPid|State|Vid|Cid|Groups
+Name:	gnome-session-b
+State:	S (sleeping)
+PPid:	2224
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+Groups:	4 24 27 30 46 122 135 136 1000 
+
+
+umar@numbat:~$ cat /proc/2238/cmdline | tr '\0' ' '
+/umr/libexec/gnome-session-binary --session=ubuntu
+
+
+
+umar@numbat:cat /proc/2238/environ | tr '\0' '\n' | grep -E "USER|DISPLAY|XDG_|CAMPO"
+USER=user
+XDG_SEAT=seat0
+XDG_SESSION_TYPE=wayland
+XDG_SESSION_CLASS=user
+USERNAME=user
+XDG_SESSION_ID=1
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+XDG_SESSION_DESKTOP=ubuntu
+XDG_VTNR=2
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+user@user-VirtualBox:~$ ls -l /proc/2238/fd/ - Процесс использует D-Bus (через сокет) для взаимодействия с другими сервисами GNOME.
+итого 0
+lr-x------ 1 user user 64 апр  1 20:38 0 -> /dev/null
+lrwx------ 1 user user 64 апр  1 20:38 1 -> 'socket:[10221]'
+lrwx------ 1 user user 64 апр  1 20:38 2 -> 'socket:[10221]'
+lrwx------ 1 user user 64 апр  1 20:38 3 -> 'socket:[10221]'
+lrwx------ 1 user user 64 апр  1 20:38 4 -> 'anon_inode:[eventfd]'
+lrwx------ 1 user user 64 апр  1 20:38 5 -> 'anon_inode:[eventfd]'
+l-wx------ 1 user user 64 апр  1 20:38 6 -> /run/user/1000/gnome-session-leader-fifo
+lrwx------ 1 user user 64 апр  1 20:38 7 -> 'anon_inode:[eventfd]'
+
+
+
+2 Задание.
+2.1.
+umar@numbat:cat code_2_1.c
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main()
+{
+	pid_t pid = fork();
+
+	if(pid == 0) 
+	{
+		printf("Child prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+	}
+
+	else if(pid > 0)
+	{
+		printf("Parent prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+	}
+
+	else
+	{
+		perror("fork failed");
+        exit(EXIT_FAILURE);
+	}
+
+	printf("Process %d: Program finished.\n", getpid());
+    return 0;
+
+
+umar@numbat:./code_2_1
+Parent prosess:
+PID: 5137 PPID: 3752
+Child prosess:
+PID: 5138 PPID: 5137
+Process 5137: Program finished.
+Process 5138: Program finished.
+
+umar@numbat:~$ cat code_2_1_2.c
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main()
+{
+	pid_t pid = fork();
+
+	if(pid == 0) 
+	{
+		printf("Child prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+	}
+
+	else if(pid > 0) 
+	{
+		printf("Parent prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+		wait(NULL);
+	}
+
+	else
+	{
+		perror("fork failed");
+        	return 1;
+	}
+
+	printf("Process %d: Program finished.\n", getpid());
+    return 0;
+}
+umar@numbat:./code_2_1_2
+Parent prosess:
+PID: 5235 PPID: 3752
+Child prosess:
+PID: 5236 PPID: 5235
+Process 5236: Program finished.
+Process 5235: Program finished.
+
+umar@numbat: cat code_2_1_3.c
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main()
+{
+	pid_t pid = fork();
+
+	if(pid == 0) 
+	{
+		for (int i = 0; i < 5; i++) 
+		{
+			printf("Child prosess:\n");
+        		printf("PID: %d PPID: %d Loop iteration: %d\n", getpid(), getppid(), i);
+        		sleep(1); 
+    		}
+	}
+
+	else if(pid > 0) 
+	{
+		for (int i = 0; i < 5; i++) 
+		{
+			printf("Parent prosess:\n");
+        		printf("PID: %d PPID: %d Loop iteration: %d\n", getpid(), getppid(), i);
+        		sleep(1); 
+    		}
+	}
+
+	else
+	{
+		perror("fork failed");
+        	return 1;
+	}
+
+	printf("\nProcess %d: Program finished.\n", getpid());
+    return 0;
+}
+
+
+umar@numbat:./task_2_1_3
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 0
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 0
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 1
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 1
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 2
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 2
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 3
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 3
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 4
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 4
+
+Process 5258: Program finished.
+Process 5259: Program finished.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
