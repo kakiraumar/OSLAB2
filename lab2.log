@@ -1,0 +1,2518 @@
+user@user-VirtualBox:~$ date
+Вс 23 мар 2025 21:44:01 MSK
+0;user@user-VirtualBox: ~
+user@user-VirtualBox:~$ whoami
+user
+0;user@user-VirtualBox: ~
+user@user-VirtualBox:~$ lscpu
+Архитектура:               x86_64
+  CPU op-mode(s):          32-bit, 64-bit
+  Address sizes:           39 bits physical, 48 bits virtual
+  Порядок байт:            Little Endian
+CPU(s):                    1
+  On-line CPU(s) list:     0
+ID прроизводителя:         GenuineIntel
+  Имя модели:              12th Gen Intel(R) Core(TM) i5-12500H
+    Семейство ЦПУ:         6
+    Модель:                154
+    Потоков на ядро:       1
+    Ядер на сокет:         1
+    Сокетов:               1
+    Степпинг:              3
+    BogoMIPS:              6220.82
+    Флаги:                 fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopol
+                           ogy nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 movbe popcnt aes rdrand hypervisor lahf_lm abm 3dnowprefetch ibrs_enhanced
+                            fsgsbase bmi1 bmi2 invpcid rdseed clflushopt arat md_clear flush_l1d arch_capabilities
+Virtualization features:   
+  Разработчик гипервизора: KVM
+  Тип виртуализации:       полный
+Caches (sum of all):       
+  L1d:                     48 KiB (1 instance)
+  L1i:                     32 KiB (1 instance)
+  L2:                      1,3 MiB (1 instance)
+  L3:                      18 MiB (1 instance)
+NUMA:                      
+  NUMA node(s):            1
+  NUMA node0 CPU(s):       0
+Vulnerabilities:           
+  Gather data sampling:    Not affected
+  Itlb multihit:           Not affected
+  L1tf:                    Not affected
+  Mds:                     Not affected
+  Meltdown:                Not affected
+  Mmio stale data:         Not affected
+  Reg file data sampling:  Vulnerable: No microcode
+  Retbleed:                Mitigation; Enhanced IBRS
+  Spec rstack overflow:    Not affected
+  Spec store bypass:       Vulnerable
+  Spectre v1:              Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+  Spectre v2:              Mitigation; Enhanced / Automatic IBRS; RSB filling; PBRSB-eIBRS SW sequence; BHI SW loop, KVM SW loop
+  Srbds:                   Not affected
+  Tsx async abort:         Not affected
+user@user-VirtualBox:~$ lshw
+ПРЕДУПРЕЖДЕНИЕ: эту программу нужно запускать от имени суперпользователя.
+user-virtualbox             
+    описание: Computer
+    разрядность: 64 bits
+    возможности: vsyscall32
+  *-core
+       описание: Motherboard
+       физический ID: 0
+     *-memory
+          описание: Системная память
+          физический ID: 0
+          размер: 4GiB
+     *-cpu
+          продукт: 12th Gen Intel(R) Core(TM) i5-12500H
+          производитель: Intel Corp.
+          физический ID: 1
+          сведения о шине: cpu@0
+          версия: 6.154.3
+          разрядность: 64 bits
+          возможности: fpu fpu_exception wp vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp x86-64 constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 movbe popcnt aes rdrand hypervisor lahf_lm abm 3dnowprefetch ibrs_enhanced fsgsbase bmi1 bmi2 invpcid rdseed clflushopt arat md_clear flush_l1d arch_capabilities
+          конфигурация: microcode=4294967295
+     *-pci
+          описание: Host bridge
+          продукт: 440FX - 82441FX PMC [Natoma]
+          производитель: Intel Corporation
+          физический ID: 100
+          сведения о шине: pci@0000:00:00.0
+          версия: 02
+          разрядность: 32 bits
+          частота: 33MHz
+        *-isa
+             описание: ISA bridge
+             продукт: 82371SB PIIX3 ISA [Natoma/Triton II]
+             производитель: Intel Corporation
+             физический ID: 1
+             сведения о шине: pci@0000:00:01.0
+             версия: 00
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: isa bus_master
+             конфигурация: latency=0
+           *-pnp00:00
+                продукт: PnP device PNP0303
+                физический ID: 0
+                возможности: pnp
+                конфигурация: driver=i8042 kbd
+           *-pnp00:01
+                продукт: PnP device PNP0f03
+                физический ID: 1
+                возможности: pnp
+                конфигурация: driver=i8042 aux
+        *-ide
+             описание: IDE interface
+             продукт: 82371AB/EB/MB PIIX4 IDE
+             производитель: Intel Corporation
+             физический ID: 1.1
+             сведения о шине: pci@0000:00:01.1
+             логическое имя: scsi1
+             версия: 01
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: ide isa_compat_mode pci_native_mode bus_master emulated
+             конфигурация: driver=ata_piix latency=64
+             ресурсы: IRQ:0 ioport:1f0(размер=8) ioport:3f6 ioport:170(размер=8) ioport:376 ioport:d000(размер=16)
+           *-cdrom
+                описание: DVD reader
+                продукт: CD-ROM
+                производитель: VBOX
+                физический ID: 0.0.0
+                сведения о шине: scsi@1:0.0.0
+                логическое имя: /dev/cdrom
+                логическое имя: /dev/sr0
+                логическое имя: /media/user/VBox_GAs_7.0.14
+                версия: 1.0
+                возможности: removable audio dvd
+                конфигурация: ansiversion=5 mount.fstype=iso9660 mount.options=ro,nosuid,nodev,relatime,nojoliet,check=s,map=n,blocksize=2048,uid=1000,gid=1000,dmode=500,fmode=400,iocharset=utf8 state=mounted status=ready
+              *-medium
+                   физический ID: 0
+                   логическое имя: /dev/cdrom
+                   логическое имя: /media/user/VBox_GAs_7.0.14
+                   конфигурация: mount.fstype=iso9660 mount.options=ro,nosuid,nodev,relatime,nojoliet,check=s,map=n,blocksize=2048,uid=1000,gid=1000,dmode=500,fmode=400,iocharset=utf8 state=mounted
+        *-display
+             описание: VGA compatible controller
+             продукт: SVGA II Adapter
+             производитель: VMware
+             физический ID: 2
+             сведения о шине: pci@0000:00:02.0
+             логическое имя: /dev/fb0
+             версия: 00
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: vga_controller bus_master rom fb
+             конфигурация: depth=32 driver=vmwgfx latency=64 resolution=1280,800
+             ресурсы: IRQ:18 ioport:d010(размер=16) память:e0000000-e7ffffff память:f0000000-f01fffff память:c0000-dffff
+        *-network
+             описание: Ethernet interface
+             продукт: 82540EM Gigabit Ethernet Controller
+             производитель: Intel Corporation
+             физический ID: 3
+             сведения о шине: pci@0000:00:03.0
+             логическое имя: enp0s3
+             версия: 02
+             серийный №: 08:00:27:4d:6d:5b
+             размер: 1Gbit/s
+             capacity: 1Gbit/s
+             разрядность: 32 bits
+             частота: 66MHz
+             возможности: bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+             конфигурация: autonegotiation=on broadcast=yes driver=e1000 driverversion=6.8.0-52-generic duplex=full ip=10.0.2.15 latency=64 link=yes mingnt=255 multicast=yes port=twisted pair speed=1Gbit/s
+             ресурсы: IRQ:19 память:f0200000-f021ffff ioport:d020(размер=8)
+        *-generic
+             описание: System peripheral
+             продукт: VirtualBox mouse integration
+             производитель: InnoTek Systemberatung GmbH
+             физический ID: 4
+             сведения о шине: pci@0000:00:04.0
+             логическое имя: input8
+             логическое имя: /dev/input/event6
+             логическое имя: /dev/input/js1
+             логическое имя: /dev/input/mouse2
+             версия: 00
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: pci
+             конфигурация: driver=vboxguest latency=0
+             ресурсы: IRQ:20 ioport:d040(размер=32) память:f0400000-f07fffff память:f0800000-f0803fff
+        *-multimedia
+             описание: Multimedia audio controller
+             продукт: 82801AA AC'97 Audio Controller
+             производитель: Intel Corporation
+             физический ID: 5
+             сведения о шине: pci@0000:00:05.0
+             логическое имя: card0
+             логическое имя: /dev/snd/controlC0
+             логическое имя: /dev/snd/pcmC0D0c
+             логическое имя: /dev/snd/pcmC0D0p
+             логическое имя: /dev/snd/pcmC0D1c
+             версия: 01
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: bus_master
+             конфигурация: driver=snd_intel8x0 latency=64
+             ресурсы: IRQ:21 ioport:d100(размер=256) ioport:d200(размер=64)
+        *-usb:0
+             описание: USB controller
+             продукт: KeyLargo/Intrepid USB
+             производитель: Apple Inc.
+             физический ID: 6
+             сведения о шине: pci@0000:00:06.0
+             версия: 00
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: ohci bus_master cap_list
+             конфигурация: driver=ohci-pci latency=64
+             ресурсы: IRQ:22 память:f0804000-f0804fff
+        *-bridge
+             описание: Bridge
+             продукт: 82371AB/EB/MB PIIX4 ACPI
+             производитель: Intel Corporation
+             физический ID: 7
+             сведения о шине: pci@0000:00:07.0
+             версия: 08
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: bridge
+             конфигурация: driver=piix4_smbus latency=0
+             ресурсы: IRQ:9
+        *-usb:1
+             описание: USB controller
+             продукт: 82801FB/FBM/FR/FW/FRW (ICH6 Family) USB2 EHCI Controller
+             производитель: Intel Corporation
+             физический ID: b
+             сведения о шине: pci@0000:00:0b.0
+             версия: 00
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: ehci bus_master cap_list
+             конфигурация: driver=ehci-pci latency=64
+             ресурсы: IRQ:19 память:f0805000-f0805fff
+        *-sata
+             описание: SATA controller
+             продукт: 82801HM/HEM (ICH8M/ICH8M-E) SATA Controller [AHCI mode]
+             производитель: Intel Corporation
+             физический ID: d
+             сведения о шине: pci@0000:00:0d.0
+             версия: 02
+             разрядность: 32 bits
+             частота: 33MHz
+             возможности: sata ahci_1.0 bus_master cap_list
+             конфигурация: driver=ahci latency=64
+             ресурсы: IRQ:21 ioport:d240(размер=8) ioport:d248(размер=4) ioport:d250(размер=8) ioport:d258(размер=4) ioport:d260(размер=16) память:f0806000-f0807fff
+  *-input:0
+       продукт: Power Button
+       физический ID: 1
+       логическое имя: input0
+       логическое имя: /dev/input/event0
+       возможности: platform
+  *-input:1
+       продукт: Sleep Button
+       физический ID: 2
+       логическое имя: input1
+       логическое имя: /dev/input/event1
+       возможности: platform
+  *-input:2
+       продукт: AT Translated Set 2 keyboard
+       физический ID: 3
+       логическое имя: input2
+       логическое имя: /dev/input/event2
+       логическое имя: input2::capslock
+       логическое имя: input2::numlock
+       логическое имя: input2::scrolllock
+       возможности: i8042
+  *-input:3
+       продукт: Video Bus
+       физический ID: 4
+       логическое имя: input4
+       логическое имя: /dev/input/event3
+       возможности: platform
+  *-input:4
+       продукт: ImExPS/2 Generic Explorer Mouse
+       физический ID: 5
+       логическое имя: input5
+       логическое имя: /dev/input/event4
+       логическое имя: /dev/input/mouse0
+       возможности: i8042
+  *-input:5
+       продукт: VirtualBox USB Tablet
+       физический ID: 6
+       логическое имя: input6
+       логическое имя: /dev/input/event5
+       логическое имя: /dev/input/js0
+       логическое имя: /dev/input/mouse1
+       возможности: usb
+ПРЕДУПРЕЖДЕНИЕ: выходная информация может быть неполной или неточной. Следует запустить эту программу от имени суперпользователя.
+
+Задание 1
+
+1.1 
+user@user-VirtualBox:~$ (sleep 30; notify-send "Задание 1 завершено") & sleep 40 & sleep 50 & 
+[1] 4780
+[2] 4781
+[3] 4782
+
+user@user-VirtualBox:~$ date && jobs
+Чт 27 мар 2025 00:04:24 MSK
+[1]   Запущен          ( sleep 30; notify-send "Задание 1 завершено" ) &
+[2]-  Запущен          sleep 40 &
+[3]+  Запущен          sleep 50 &
+
+Задание 1 завершило работу и было выведено уведомление
+user@user-VirtualBox:~$ date && jobs
+Чт 27 мар 2025 00:04:55 MSK
+[2]-  Запущен          sleep 40 &
+[3]+  Запущен          sleep 50 &
+
+user@user-VirtualBox:~$ date && jobs
+Чт 27 мар 2025 00:05:04 MSK
+[3]+  Запущен          sleep 50 &
+
+user@user-VirtualBox:~$ date && jobs
+Чт 27 мар 2025 00:05:15 MSK - все процессы завершили работу
+
+
+user@user-VirtualBox:~$ date && jobs - запускаем процесс снова 
+Чт 27 мар 2025 00:07:39 MSK
+[1]   Запущен          sleep 30 &
+[2]-  Запущен          sleep 40 &
+[3]+  Запущен          sleep 50 &
+user@user-VirtualBox:~$ fg %2
+sleep 40
+[1]-  Завершён        sleep 30 - пока выполнялось задание 2, было выполнено задание 1
+
+user@user-VirtualBox:~$ date && jobs
+Чт 27 мар 2025 00:08:25 MSK
+
+user@user-VirtualBox:~$ sleep 30 & sleep 40 & sleep 50 & - запускаем процесс снова
+[1] 4850
+[2] 4851
+[3] 4852
+user@user-VirtualBox:~$ date && jobs
+Чт 27 мар 2025 00:10:43 MSK
+[1]   Запущен          sleep 30 &
+[2]-  Запущен          sleep 40 &
+[3]+  Запущен          sleep 50 &
+user@user-VirtualBox:~$ kill %1 - отменяем одно из невыполненных
+user@user-VirtualBox:~$ date && jobs
+Чт 27 мар 2025 00:10:48 MSK
+[1]   Завершено      sleep 30
+[2]-  Запущен          sleep 40 &
+[3]+  Запущен          sleep 50 &
+
+1.2.
+
+user@user-VirtualBox:~$ nohup sleep 600 &
+[1] 7163
+user@user-VirtualBox:~$ nohup: ввод игнорируется, вывод добавляется в 'nohup.out'
+
+user@user-VirtualBox:~$ date && ps aux | grep sleep
+Чт 27 мар 2025 00:35:16 MSK
+user        7163  0.0  0.0   8380  1792 pts/0    S    00:35   0:00 sleep 600 - здесь показывается. что процесс запущен в конкретной сессии терминала
+user        7167  0.0  0.0   9112  2560 pts/0    S+   00:35   0:00 grep --color=auto sleep
+user@user-VirtualBox:~$ 
+
+Совершен выход из терминала
+
+user@user-VirtualBox:~$ date && ps aux | grep sleep - видим что процесс продолжает работу
+Чт 27 мар 2025 00:35:40 MSK
+user        7163  0.0  0.0   8380  1792 ?        S    00:35   0:00 sleep 600 - процесс не привязан к терминалу и работает на фоне
+user        7226  0.0  0.0   9112  2560 pts/0    S+   00:35   0:00 grep --color=auto sleep
+user@user-VirtualBox:~$ kill 7163
+user@user-VirtualBox:~$ date && ps aux | grep sleep
+Чт 27 мар 2025 00:36:44 MSK
+user        7232  0.0  0.0   9112  2560 pts/0    S+   00:36   0:00 grep --color=auto sleep
+
+1.3.
+user@user-VirtualBox:~$ date && ps aux | grep bash
+Вт 01 апр 2025 00:21:35 MSK
+user        5828  0.0  0.1  11356  5376 pts/0    Ss   мар31   0:00 bash
+user        6265  0.0  0.0   9112  2560 pts/0    S+   00:21   0:00 grep --color=auto bash
+user@user-VirtualBox:~$ date && ps -o uid= -p 5828
+Вт 01 апр 2025 00:21:40 MSK
+ 1000
+
+user@user-VirtualBox:~$ date && cat /etc/passwd 
+Пн 31 мар 2025 23:55:05 MSK
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+...
+gdm:x:128:134:Gnome Display Manager:/var/lib/gdm3:/bin/false
+user:x:1000:1000:user,,,:/home/user:/bin/bash
+vboxadd:x:999:1::/var/run/vboxadd:/bin/false
+test:x:1001:1001::/home/test:/bin/sh
+
+Минимальное значение UID равно 0 и оно принадлжеит root. 
+
+user@user-VirtualBox:~$ date && ps -eo pid,comm | sort -n
+Вт 01 апр 2025 00:14:24 MSK
+    PID COMMAND
+      1 systemd
+      2 kthreadd
+      3 pool_workqueue_release
+      4 kworker/R-rcu_g
+      5 kworker/R-rcu_p
+      6 kworker/R-slub_
+      7 kworker/R-netns
+     10 kworker/0:0H-events_highpri
+     12 kworker/R-mm_pe
+     ...
+   6078 cupsd
+   6079 kworker/0:1-mm_percpu_wq
+   6080 cups-browsed
+   6157 gjs
+   6203 fwupd
+   6210 kworker/0:0
+   6235 ps
+   6236 sort
+Минимальный PID равен 1 и принадлежит яsystemd
+Максимальный 6236
+
+Максимальный PID, который может иметь процессор
+user@user-VirtualBox:~$ cat /proc/sys/kernel/pid_max
+4194304
+
+1.4
+user@user-VirtualBox:~$ date && ps aux | grep '^root' | head -n 10 - запуск системных процессов
+Вт 01 апр 2025 21:25:06 MSK
+root           1  0.0  0.2 166836 11864 ?        Ss   20:36   0:01 /sbin/init splash
+root           2  0.0  0.0      0     0 ?        S    20:36   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        S    20:36   0:00 [pool_workqueue_release]
+root           4  0.0  0.0      0     0 ?        I<   20:36   0:00 [kworker/R-rcu_g]
+root           5  0.0  0.0      0     0 ?        I<   20:36   0:00 [kworker/R-rcu_p]
+root           6  0.0  0.0      0     0 ?        I<   20:36   0:00 [kworker/R-slub_]
+root           7  0.0  0.0      0     0 ?        I<   20:36   0:00 [kworker/R-netns]
+root          10  0.0  0.0      0     0 ?        I<   20:36   0:00 [kworker/0:0H-events_highpri]
+root          12  0.0  0.0      0     0 ?        I<   20:36   0:00 [kworker/R-mm_pe]
+root          13  0.0  0.0      0     0 ?        I    20:36   0:00 [rcu_tasks_kthread]
+user@user-VirtualBox:~$ date && ps aux | grep '^user' | head -n 10 - запуск пользовательских процессов
+Вт 01 апр 2025 21:25:16 MSK
+user        2196  0.0  0.3  21760 14540 ?        Ss   20:37   0:00 /lib/systemd/systemd --user
+user        2197  0.0  0.1 169772  5800 ?        S    20:37   0:00 (sd-pam)
+user        2203  0.0  0.1  39576  6528 ?        S<sl 20:37   0:00 /usr/bin/pipewire
+user        2204  0.0  0.1  23464  6528 ?        Ssl  20:37   0:00 /usr/bin/pipewire-media-session
+user        2205  0.0  0.6 1423068 26892 ?       S<sl 20:37   0:00 /usr/bin/pulseaudio --daemonize=no --log-target=journal
+user        2212  0.0  0.2 241192  8216 ?        SLl  20:37   0:00 /usr/bin/gnome-keyring-daemon --daemonize --login
+user        2224  0.0  0.1 162624  6144 tty2     Ssl+ 20:37   0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+user        2226  0.0  0.3  16876 13056 ?        Ss   20:37   0:00 /usr/bin/dbus-daemon --session --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only
+user        2236  0.0  0.1 538460  7936 ?        Ssl  20:37   0:00 /usr/libexec/xdg-document-portal
+user        2238  0.0  0.3 223268 15872 tty2     Sl+  20:37   0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+
+Системные запущены от root (UID = 0), а пользовательские от user (UID = 1000+)
+Меньшие значения PID для системных, а для пользовательских большие
+/sbin/init splash - Первый процесс, запускаемый ядром Linux.
+[kthreadd] - Менеджер потоков ядра (kernel threads).
+kworker/* (PID 4,5,6...) — [kworker/R-*] - Фоновые рабочие потоки ядра.
+rcu_tasks_kthread (PID 13) — [rcu_tasks_kthread] - Поддержка механизма RCU (Read-Copy-Update).
+
+1.5.
+Прародитель сессии — gnome-session-b (PID 2238), запущенный через GDM (gdm3 → gdm-wayland-ses).
+user@user-VirtualBox:~$ cat /proc/2238/status | grep -E "Name|PPid|State|Uid|Gid|Groups"
+Name:	gnome-session-b
+State:	S (sleeping)
+PPid:	2224
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+Groups:	4 24 27 30 46 122 135 136 1000 
+Запущен от пользователя
+
+user@user-VirtualBox:~$ cat /proc/2238/cmdline | tr '\0' ' '
+/usr/libexec/gnome-session-binary --session=ubuntu - Это основной процесс GNOME, управляющий сеансом (запускает оболочку, панели, автозагрузку приложений).
+
+user@user-VirtualBox:~$ cat /proc/2238/environ | tr '\0' '\n' | grep -E "USER|DISPLAY|XDG_|WAYLAND"
+USER=user
+XDG_SEAT=seat0
+XDG_SESSION_TYPE=wayland
+XDG_SESSION_CLASS=user
+USERNAME=user
+XDG_SESSION_ID=1
+XDG_RUNTIME_DIR=/run/user/1000
+XDG_CURRENT_DESKTOP=ubuntu:GNOME
+XDG_SESSION_DESKTOP=ubuntu
+XDG_VTNR=2
+XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+user@user-VirtualBox:~$ ls -l /proc/2238/fd/ - Процесс использует D-Bus (через сокет) для взаимодействия с другими сервисами GNOME.
+итого 0
+lr-x------ 1 user user 64 апр  1 20:38 0 -> /dev/null
+lrwx------ 1 user user 64 апр  1 20:38 1 -> 'socket:[10221]'
+lrwx------ 1 user user 64 апр  1 20:38 2 -> 'socket:[10221]'
+lrwx------ 1 user user 64 апр  1 20:38 3 -> 'socket:[10221]'
+lrwx------ 1 user user 64 апр  1 20:38 4 -> 'anon_inode:[eventfd]'
+lrwx------ 1 user user 64 апр  1 20:38 5 -> 'anon_inode:[eventfd]'
+l-wx------ 1 user user 64 апр  1 20:38 6 -> /run/user/1000/gnome-session-leader-fifo
+lrwx------ 1 user user 64 апр  1 20:38 7 -> 'anon_inode:[eventfd]'
+user@user-VirtualBox:~$ cat /proc/2238/cgroup - Процесс работает в user.slice, что означает, что он управляется systemd --user (но сам не является systemd).
+0::/user.slice/user-1000.slice/session-1.scope
+/proc подтверждает, что ваша графическая сессия управляется GNOME Session Manager (gnome-session-b), 
+который является родителем для всех пользовательских процессов в этой сессии (терминалов, приложений)
+
+2 Задание.
+2.1.
+user@user-VirtualBox:~$ date && cat task_2_1_1.c
+Ср 02 апр 2025 18:44:11 MSK
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main()
+{
+	pid_t pid = fork();
+
+	if(pid == 0) //дочерний процесс
+	{
+		printf("Child prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+	}
+
+	else if(pid > 0)
+	{
+		printf("Parent prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+	}
+
+	else
+	{
+		perror("fork failed");
+        exit(EXIT_FAILURE);
+	}
+
+	printf("Process %d: Program finished.\n", getpid());
+    return 0;
+
+функция fork() создает новый процесс(потомок), который является копией процесса-родителя, выполняющего этот вызов.
+Сначала выполняется процесс-родитель, а затем процесс-потомок. Это происходит из-за особенностей работы fork() и планировщика ОС.
+У процесса-потомка PPID = PID процесса-родителя
+user@user-VirtualBox:~$ date && ./task_2_1_1
+Ср 02 апр 2025 18:46:22 MSK
+Parent prosess:
+PID: 5137 PPID: 3752
+Child prosess:
+PID: 5138 PPID: 5137
+Process 5137: Program finished.
+Process 5138: Program finished.
+
+Теперь процесс-родитель ждет выполнения процесса-потомка с помощью wait(NULL)
+user@user-VirtualBox:~$ date && cat task_2_1_2.c
+Ср 02 апр 2025 18:53:33 MSK
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main()
+{
+	pid_t pid = fork();
+
+	if(pid == 0) //дочерний процесс
+	{
+		printf("Child prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+	}
+
+	else if(pid > 0) //родительский процесс
+	{
+		printf("Parent prosess:\n");
+		printf("PID: %d PPID: %d\n", getpid(), getppid());
+		wait(NULL);
+	}
+
+	else
+	{
+		perror("fork failed");
+        	return 1;
+	}
+
+	printf("Process %d: Program finished.\n", getpid());
+    return 0;
+}
+user@user-VirtualBox:~$ date && ./task_2_1_2
+Ср 02 апр 2025 18:53:35 MSK
+Parent prosess:
+PID: 5235 PPID: 3752
+Child prosess:
+PID: 5236 PPID: 5235
+Process 5236: Program finished.
+Process 5235: Program finished.
+
+Теперь однократные вычисления заменим на циклы
+user@user-VirtualBox:~$ date && cat task_2_1_3.c
+Ср 02 апр 2025 18:55:42 MSK
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+
+int main()
+{
+	pid_t pid = fork();
+
+	if(pid == 0) //дочерний процесс
+	{
+		for (int i = 0; i < 5; i++) 
+		{
+			printf("Child prosess:\n");
+        		printf("PID: %d PPID: %d Loop iteration: %d\n", getpid(), getppid(), i);
+        		sleep(1); 
+    		}
+	}
+
+	else if(pid > 0) //Родительский процесся
+	{
+		for (int i = 0; i < 5; i++) 
+		{
+			printf("Parent prosess:\n");
+        		printf("PID: %d PPID: %d Loop iteration: %d\n", getpid(), getppid(), i);
+        		sleep(1); 
+    		}
+	}
+
+	else
+	{
+		perror("fork failed");
+        	return 1;
+	}
+
+	printf("\nProcess %d: Program finished.\n", getpid());
+    return 0;
+}
+
+Оба процесса входят в цикл. 
+user@user-VirtualBox:~$ date && ./task_2_1_3
+Ср 02 апр 2025 18:55:48 MSK
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 0
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 0
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 1
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 1
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 2
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 2
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 3
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 3
+Parent prosess:
+PID: 5258 PPID: 3752 Loop iteration: 4
+Child prosess:
+PID: 5259 PPID: 5258 Loop iteration: 4
+
+Process 5258: Program finished.
+Process 5259: Program finished.
+
+Видим, что ОС переключается между процессами - псевдопараллеризм.
+ОС автоматически распределяет процессорное время между процессами.
+
+2.2
+Программа, в которой происходит выполнение процесса-родителя и создание процесса-потомка с помощью функции fork()
+Функция execl() выполняет полную замену текущего процесса-потомка на новую программу.
+execl() запускает новую программу в той же среде, в которой она работает.
+Процесс-родитель будет ожидать окончания процесса-потомка с помощью wait. 
+ Для фиксации состояния таблицы процессов в файле используется system.
+ 
+user@user-VirtualBox:~/os_lab_2$ date && cat father.c
+Ср 02 апр 2025 19:27:46 MSK
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() 
+{
+    printf("Father process started (PID: %d)\n", getpid());
+    
+    // Создаем потомка
+    pid_t pid = fork();
+    
+    if (pid == -1) 
+    {
+        perror("fork failed");
+        exit(EXIT_FAILURE);
+    }
+    
+    if (pid == 0) 
+    {
+        // Дочерний процесс
+        execl("./son.out", "son.out", NULL);
+        perror("execl failed");
+        return 1;
+    } 
+
+    else 
+    {
+        // Родительский процесс
+        printf("Father: created child with PID %d\n", pid);
+        
+        // Фиксируем состояние процессов
+        system("ps -l > father_ps.txt");
+        
+        // Ждем завершения потомка
+        wait(NULL);
+        printf("Father: child process finished\n");
+    }
+    
+    printf("Father process finished\n");
+    return 0;
+}
+
+Процесс-потомок
+user@user-VirtualBox:~/os_lab_2$ date && cat son.c
+Ср 02 апр 2025 19:27:51 MSK
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
+int main() 
+{
+    printf("Son process started (PID: %d, PPID: %d)\n", getpid(), getppid());
+    
+    // Имитация работы
+    for (int i = 0; i < 3; i++) {
+        printf("Son: working... (%d/3)\n", i+1);
+        sleep(1);
+    }
+    
+    printf("Son process finished\n");
+    return 0;
+}
+user@user-VirtualBox:~/os_lab_2$ gcc father.c -o father.out
+user@user-VirtualBox:~/os_lab_2$ gcc son.c -o son.out
+Запуск в обычном режиме
+user@user-VirtualBox:~/os_lab_2$ ./father.out
+Father process started (PID: 5696)
+Father: created child with PID 5697
+Son process started (PID: 5697, PPID: 5696)
+Son: working... (1/3)
+Son: working... (2/3)
+Son: working... (3/3)
+Son process finished
+Father: child process finished
+Father process finished
+Система зафиксировала момент, когда оба процесса (father.out и son.out) уже выполнялись, но еще не завершились.
+user@user-VirtualBox:~/os_lab_2$ cat father_ps.txt
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    3752    3726  0  80   0 -  2969 do_wai pts/0    00:00:00 bash
+0 S  1000    5696    3752  0  80   0 -   694 do_wai pts/0    00:00:00 father.out
+0 S  1000    5697    5696  0  80   0 -   694 hrtime pts/0    00:00:00 son.out
+0 S  1000    5698    5696  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+0 R  1000    5699    5698  0  80   0 -  3178 -      pts/0    00:00:00 ps
+Запуск в фоном режиме
+user@user-VirtualBox:~/os_lab_2$ ./father.out &
+[1] 5701
+Система видит, что процесс был запущен
+user@user-VirtualBox:~/os_lab_2$ date && ps -u | grep father
+Ср 02 апр 2025 19:28:47 MSK
+user        5709  0.0  0.0   2776  1408 pts/0    S    19:28   0:00 ./father.out
+user        5715  0.0  0.0   9112  2560 pts/1    S+   19:28   0:00 grep --color=auto father
+
+2.3.
+user@user-VirtualBox:~/os_lab_2$ date && cat task_2_3.c 
+Ср 02 апр 2025 20:57:04 MSK
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int main() {
+    printf("Main process (PID: %d)\n", getpid());
+    
+    // Варианты запуска
+    char *args[] = {"./target.out", "arg1", "arg2", NULL};
+    char *env[] = {"ENV_VAR1=value1", "ENV_VAR2=value2", NULL};
+    
+    if(fork() == 0) {
+        // Вариант 1: execl()
+        printf("\nCase 1: execl()\n");
+        execl("./target.out", "./target.out", "execl_arg", NULL);
+        perror("execl failed");
+        exit(1);
+    }
+    wait(NULL);
+    
+    if(fork() == 0) {
+        // Вариант 2: execle() с новым окружением
+        printf("\nCase 2: execle()\n");
+        execle("./target.out", "./target.out", "execle_arg", NULL, env);
+        perror("execle failed");
+        exit(1);
+    }
+    wait(NULL);
+    
+    if(fork() == 0) {
+        // Вариант 3: execv() с массивом аргументов
+        printf("\nCase 3: execv()\n");
+        execv("./target.out", args);
+        perror("execv failed");
+        exit(1);
+    }
+    wait(NULL);
+    
+    if(fork() == 0) {
+        // Вариант 4: execvp() (поиск в PATH)
+        printf("\nCase 4: execvp()\n");
+        execvp("./target.out", (char *[]){"./target.out", "arg1", "arg2", NULL});
+        perror("execvp failed");
+        exit(1);
+    }
+    wait(NULL);
+    
+    printf("\nExperiment completed\n");
+    return 0;
+}
+user@user-VirtualBox:~/os_lab_2$ date && cat target.c
+Ср 02 апр 2025 20:57:19 MSK
+// target.c - программа, которую будем запускать через exec()
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h> 
+
+int main(int argc, char *argv[], char *envp[]) {
+    printf("Target process started (PID: %d)\n", getpid());
+    
+    // Вывод аргументов
+    printf("Arguments (%d):\n", argc);
+    for(int i = 0; i < argc; i++) {
+        printf("  argv[%d] = %s\n", i, argv[i]);
+    }
+    
+    // Вывод переменных окружения
+    printf("Environment variables:\n");
+    for(char **env = envp; *env != NULL; env++) {
+        printf("  %s\n", *env);
+    }
+    
+    return 0;
+}
+user@user-VirtualBox:~/os_lab_2$gcc task_2_3.c -o 2_3
+user@user-VirtualBox:~/os_lab_2$ gcc target.c -o target
+user@user-VirtualBox:~/os_lab_2$ date && ./2_3
+Ср 02 апр 2025 20:57:49 MSK
+Main process (PID: 6192)
+
+Case 1: execl()
+Target process started (PID: 6193)
+Arguments (2):
+  argv[0] = ./target.out
+  argv[1] = execl_arg
+Environment variables:
+  SHELL=/bin/bash
+  SESSION_MANAGER=local/user-VirtualBox:@/tmp/.ICE-unix/2317,unix/user-VirtualBox:/tmp/.ICE-unix/2317
+  QT_ACCESSIBILITY=1
+  COLORTERM=truecolor
+  XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+  SSH_AGENT_LAUNCHER=gnome-keyring
+  XDG_MENU_PREFIX=gnome-
+  GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+  GNOME_SHELL_SESSION_MODE=ubuntu
+  SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+  XMODIFIERS=@im=ibus
+  DESKTOP_SESSION=ubuntu
+  GTK_MODULES=gail:atk-bridge
+  PWD=/home/user/os_lab_2
+  LOGNAME=user
+  XDG_SESSION_DESKTOP=ubuntu
+  XDG_SESSION_TYPE=wayland
+  SYSTEMD_EXEC_PID=2354
+  XAUTHORITY=/run/user/1000/.mutter-Xwaylandauth.TSSF42
+  HOME=/home/user
+  USERNAME=user
+  IM_CONFIG_PHASE=1
+  LANG=ru_RU.UTF-8
+  LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  XDG_CURRENT_DESKTOP=ubuntu:GNOME
+  VTE_VERSION=6800
+  WAYLAND_DISPLAY=wayland-0
+  GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/aceacc66_b557_4a62_9900_d5567d37cf6d
+  GNOME_SETUP_DISPLAY=:1
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  XDG_SESSION_CLASS=user
+  TERM=xterm-256color
+  LESSOPEN=| /usr/bin/lesspipe %s
+  USER=user
+  GNOME_TERMINAL_SERVICE=:1.103
+  DISPLAY=:0
+  SHLVL=1
+  QT_IM_MODULE=ibus
+  XDG_RUNTIME_DIR=/run/user/1000
+  XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+  GDMSESSION=ubuntu
+  DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+  _=./experiment
+  OLDPWD=/home/user
+
+Case 2: execle()
+Target process started (PID: 6194)
+Arguments (2):
+  argv[0] = ./target.out
+  argv[1] = execle_arg
+Environment variables:
+  ENV_VAR1=value1
+  ENV_VAR2=value2
+
+Case 3: execv()
+Target process started (PID: 6195)
+Arguments (3):
+  argv[0] = ./target.out
+  argv[1] = arg1
+  argv[2] = arg2
+Environment variables:
+  SHELL=/bin/bash
+  SESSION_MANAGER=local/user-VirtualBox:@/tmp/.ICE-unix/2317,unix/user-VirtualBox:/tmp/.ICE-unix/2317
+  QT_ACCESSIBILITY=1
+  COLORTERM=truecolor
+  XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+  SSH_AGENT_LAUNCHER=gnome-keyring
+  XDG_MENU_PREFIX=gnome-
+  GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+  GNOME_SHELL_SESSION_MODE=ubuntu
+  SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+  XMODIFIERS=@im=ibus
+  DESKTOP_SESSION=ubuntu
+  GTK_MODULES=gail:atk-bridge
+  PWD=/home/user/os_lab_2
+  LOGNAME=user
+  XDG_SESSION_DESKTOP=ubuntu
+  XDG_SESSION_TYPE=wayland
+  SYSTEMD_EXEC_PID=2354
+  XAUTHORITY=/run/user/1000/.mutter-Xwaylandauth.TSSF42
+  HOME=/home/user
+  USERNAME=user
+  IM_CONFIG_PHASE=1
+  LANG=ru_RU.UTF-8
+  LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  XDG_CURRENT_DESKTOP=ubuntu:GNOME
+  VTE_VERSION=6800
+  WAYLAND_DISPLAY=wayland-0
+  GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/aceacc66_b557_4a62_9900_d5567d37cf6d
+  GNOME_SETUP_DISPLAY=:1
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  XDG_SESSION_CLASS=user
+  TERM=xterm-256color
+  LESSOPEN=| /usr/bin/lesspipe %s
+  USER=user
+  GNOME_TERMINAL_SERVICE=:1.103
+  DISPLAY=:0
+  SHLVL=1
+  QT_IM_MODULE=ibus
+  XDG_RUNTIME_DIR=/run/user/1000
+  XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+  GDMSESSION=ubuntu
+  DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+  _=./experiment
+  OLDPWD=/home/user
+
+Case 4: execvp()
+Target process started (PID: 6196)
+Arguments (3):
+  argv[0] = ./target.out
+  argv[1] = arg1
+  argv[2] = arg2
+Environment variables:
+  SHELL=/bin/bash
+  SESSION_MANAGER=local/user-VirtualBox:@/tmp/.ICE-unix/2317,unix/user-VirtualBox:/tmp/.ICE-unix/2317
+  QT_ACCESSIBILITY=1
+  COLORTERM=truecolor
+  XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/etc/xdg
+  SSH_AGENT_LAUNCHER=gnome-keyring
+  XDG_MENU_PREFIX=gnome-
+  GNOME_DESKTOP_SESSION_ID=this-is-deprecated
+  GNOME_SHELL_SESSION_MODE=ubuntu
+  SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+  XMODIFIERS=@im=ibus
+  DESKTOP_SESSION=ubuntu
+  GTK_MODULES=gail:atk-bridge
+  PWD=/home/user/os_lab_2
+  LOGNAME=user
+  XDG_SESSION_DESKTOP=ubuntu
+  XDG_SESSION_TYPE=wayland
+  SYSTEMD_EXEC_PID=2354
+  XAUTHORITY=/run/user/1000/.mutter-Xwaylandauth.TSSF42
+  HOME=/home/user
+  USERNAME=user
+  IM_CONFIG_PHASE=1
+  LANG=ru_RU.UTF-8
+  LS_COLORS=rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+  XDG_CURRENT_DESKTOP=ubuntu:GNOME
+  VTE_VERSION=6800
+  WAYLAND_DISPLAY=wayland-0
+  GNOME_TERMINAL_SCREEN=/org/gnome/Terminal/screen/aceacc66_b557_4a62_9900_d5567d37cf6d
+  GNOME_SETUP_DISPLAY=:1
+  LESSCLOSE=/usr/bin/lesspipe %s %s
+  XDG_SESSION_CLASS=user
+  TERM=xterm-256color
+  LESSOPEN=| /usr/bin/lesspipe %s
+  USER=user
+  GNOME_TERMINAL_SERVICE=:1.103
+  DISPLAY=:0
+  SHLVL=1
+  QT_IM_MODULE=ibus
+  XDG_RUNTIME_DIR=/run/user/1000
+  XDG_DATA_DIRS=/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+  PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+  GDMSESSION=ubuntu
+  DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus
+  _=./experiment
+  OLDPWD=/home/user
+
+Experiment completed
+
+2.4.
+user@user-VirtualBox:~/os_lab_2/task_2$ cat task_2_4.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+// Утилита для записи вывода ps -l в файл
+void log_ps(const char *label) {
+    FILE *fp = fopen("ps_output.log", "a");
+    if (fp == NULL) {
+        perror("fopen");
+        exit(1);
+    }
+
+    fprintf(fp, "\n--- %s ---\n", label);
+    fflush(fp);
+    // Команда ps -l, результат направим в файл
+    system("ps -l >> ps_output.log");
+
+    fclose(fp);
+}
+
+//родитель ждёт завершения ребёнка
+void scenario_a() {
+    printf("Родитель запускает сына и ждёт завершения\n");
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        printf("Child: PID %d, PPID %d\n", getpid(), getppid());
+        sleep(2);
+        printf("Child  завершает работу\n");
+        exit(0);
+    } else if (pid > 0) {
+        printf("Parent: PID %d. Ждёт завершения ребёнка\n", getpid());
+	log_ps("До:");
+        waitpid(pid, NULL, 0);
+        printf("Parent : Ребёнок завершился\n");
+        log_ps("После:");
+    } else {
+        perror("fork");
+        exit(1);
+    }
+}
+
+//родитель завершается, ребёнок получает нового родителя
+void scenario_b() {
+    printf("Родитель завершает работу, не дождавшись ребёнка\n");
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        sleep(3); // дождаться завершения родителя
+        printf("Child: PID %d, новый PPID: %d\n", getpid(), getppid());
+        log_ps("После смены родителя");
+        exit(0);
+    } else if (pid > 0) {
+        printf("Parent: PID %d. Завершается немедленно\n", getpid());
+        log_ps("До смены родителя");
+        exit(0);
+    } else {
+        perror("fork");
+        exit(1);
+    }
+}
+
+// зомби-процесс
+void scenario_c() {
+    printf("Ребёнок завершается, родитель не ждёт — появляется зомби\n");
+    pid_t pid = fork();
+
+    if (pid == 0) {
+        printf("Child: PID %d завершает работу\n", getpid());
+        exit(0);
+    } else if (pid > 0) {
+        printf("Parent: PID %d. Не ждёт завершения сына\n", getpid());
+        sleep(3); // время на проявление зомби
+        log_ps("зомби-процесс");
+        waitpid(pid, NULL, 0); // убираем зомби
+    } else {
+        perror("fork");
+        exit(1);
+    }
+}
+
+int main() {
+    //scenario_a();
+    //scenario_b();
+    scenario_c();
+
+    return 0;
+}
+
+а) процесс-отец запускает процесс-сын и ожидает его завершения;
+user@user-VirtualBox:~/os_lab_2$ ./2_4
+
+Родитель запускает сына и ждёт завершения
+Parent: PID 4385. Ждёт завершения ребёнка
+Child: PID 4386, PPID 4385
+Child  завершает работу
+Parent : Ребёнок завершился
+user@user-VirtualBox:~/os_lab_2$ cat ps_output.log
+--- До: ---
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    4203    4177  0  80   0 -  2885 do_wai pts/0    00:00:00 bash
+0 S  1000    4385    4203  0  80   0 -   694 do_wai pts/0    00:00:00 2_4
+1 S  1000    4386    4385  0  80   0 -   694 hrtime pts/0    00:00:00 2_4
+0 S  1000    4387    4385  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+0 R  1000    4388    4387  0  80   0 -  3178 -      pts/0    00:00:00 ps
+
+--- После: ---
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    4203    4177  0  80   0 -  2885 do_wai pts/0    00:00:00 bash
+0 S  1000    4385    4203  0  80   0 -   694 do_wai pts/0    00:00:00 2_4
+0 S  1000    4389    4385  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+0 R  1000    4390    4389  0  80   0 -  3178 -      pts/0    00:00:00 ps
+
+В таблице видно, что во время исполнения присутствует и родитель, и дочерний процессы. 
+После завершения дочернего процесса, он исчезает из таблицы, подтверждая, что родитель корректно вызвал wait() и завершение было обработано.
+
+б) процесс-отец запускает процесс-сын и, не ожидая его завершения, завершается сам.
+user@user-VirtualBox:~/os_lab_2$ ./2_4
+Родитель завершает работу, не дождавшись ребёнка
+Parent: PID 4447. Завершается немедленно
+Child: PID 4448, новый PPID: 2196
+
+user@user-VirtualBox:~/os_lab_2$ cat ps_output.log
+
+--- До смены родителя ---
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    4203    4177  0  80   0 -  2885 do_wai pts/0    00:00:00 bash
+0 S  1000    4447    4203  0  80   0 -   694 do_wai pts/0    00:00:00 2_4
+1 S  1000    4448    4447  0  80   0 -   694 hrtime pts/0    00:00:00 2_4
+0 S  1000    4449    4447  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+0 R  1000    4450    4449  0  80   0 -  3178 -      pts/0    00:00:00 ps
+
+--- После смены родителя ---
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    4203    4177  0  80   0 -  2885 do_sel pts/0    00:00:00 bash
+1 S  1000    4448    2196  0  80   0 -   694 do_wai pts/0    00:00:00 2_4
+0 S  1000    4451    4448  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+0 R  1000    4452    4451  0  80   0 -  3178 -      pts/0    00:00:00 ps
+В таблице видно, что сначала PPID проесса-сына было равно 4447(соответствует процессу-отцу). 
+После его завершения, процесс был усыновлен процессом 2196.
+user@user-VirtualBox:~/os_lab_2$ ps -p 2196 -o pid,ppid,cmd
+    PID    PPID CMD
+   2196       1 /lib/systemd/systemd --user
+Этот процесс представляет собой пользовательскую сессию systemd, запущенную с параметром --user, и предназначен для управления всеми процессами, запущенными от имени конкретного пользователя. 
+Его задачей является управление жизненным циклом пользовательских процессов, включая усыновление осиротевших и их последующую очистку.
+
+в) процесс-отец запускает процесс-сын и не ожидает его завершения; процесс-сын завершает свое выполнение.
+user@user-VirtualBox:~/os_lab_2$ ./2_4
+Ребёнок завершается, родитель не ждёт — появляется зомби
+Parent: PID 4615. Не ждёт завершения сына
+Child: PID 4616 завершает работу
+user@user-VirtualBox:~/os_lab_2$ cat ps_output.log
+
+--- зомби-процесс ---
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    4203    4177  0  80   0 -  2885 do_wai pts/0    00:00:00 bash
+0 S  1000    4611    4203  0  80   0 -   694 do_wai pts/0    00:00:00 2_4
+1 Z  1000    4612    4611  0  80   0 -     0 -      pts/0    00:00:00 2_4 <defunct>
+0 S  1000    4613    4611  0  80   0 -   723 do_wai pts/0    00:00:00 sh
+0 R  1000    4614    4613  0  80   0 -  3178 -      pts/0    00:00:00 ps
+
+user@user-VirtualBox:~/os_lab_2$ ps -l
+F S   UID     PID    PPID  C PRI  NI ADDR SZ WCHAN  TTY          TIME CMD
+0 S  1000    4203    4177  0  80   0 -  2885 do_wai pts/0    00:00:00 bash
+0 R  1000    4622    4203  0  80   0 -  3178 -      pts/0    00:00:00 ps
+
+После завершения дочернего процесса его запись остаётся в таблице процессов со статусом Z (Zombie).
+Это можно наблюдать в выводе ps -l, где дочерний процесс помечен как <defunct>, а его статус — Z. Родитель всё ещё активен, но не обработал завершение дочернего.
+После вызова wait(), система очищает зомби, и процесс исчезает из таблицы.
+
+Задание 3.
+3.1.
+Команда kill -l выводит список имён сигналов.  
+user@user-VirtualBox:~/os_lab_2$ kill -l
+ 1) SIGHUP	 2) SIGINT	 3) SIGQUIT	 4) SIGILL	 5) SIGTRAP
+ 6) SIGABRT	 7) SIGBUS	 8) SIGFPE	 9) SIGKILL	10) SIGUSR1
+11) SIGSEGV	12) SIGUSR2	13) SIGPIPE	14) SIGALRM	15) SIGTERM
+16) SIGSTKFLT	17) SIGCHLD	18) SIGCONT	19) SIGSTOP	20) SIGTSTP
+21) SIGTTIN	22) SIGTTOU	23) SIGURG	24) SIGXCPU	25) SIGXFSZ
+26) SIGVTALRM	27) SIGPROF	28) SIGWINCH	29) SIGIO	30) SIGPWR
+31) SIGSYS	34) SIGRTMIN	35) SIGRTMIN+1	36) SIGRTMIN+2	37) SIGRTMIN+3
+38) SIGRTMIN+4	39) SIGRTMIN+5	40) SIGRTMIN+6	41) SIGRTMIN+7	42) SIGRTMIN+8
+43) SIGRTMIN+9	44) SIGRTMIN+10	45) SIGRTMIN+11	46) SIGRTMIN+12	47) SIGRTMIN+13
+48) SIGRTMIN+14	49) SIGRTMIN+15	50) SIGRTMAX-14	51) SIGRTMAX-13	52) SIGRTMAX-12
+53) SIGRTMAX-11	54) SIGRTMAX-10	55) SIGRTMAX-9	56) SIGRTMAX-8	57) SIGRTMAX-7
+58) SIGRTMAX-6	59) SIGRTMAX-5	60) SIGRTMAX-4	61) SIGRTMAX-3	62) SIGRTMAX-2
+63) SIGRTMAX-1	64) SIGRTMAX	
+
+kill(pid_t pid, int sig) - Отправляет сигнал процессу или группе процессов.
+signal(int signum, sighandler_t handler) - Устанавливает обработчик сигнала или изменяет реакцию процесса на сигнал.
+
+Родительский процесс (father) создаёт три дочерних процесса (son1, son2, son3) и отправляет им сигнал SIGUSR1(пользовательский сигнал), 
+демонстрируя разные способы обработки сигналов:
+user@user-VirtualBox:~/os_lab_2/task_3$ cat father.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <signal.h>
+
+int main()
+{
+    pid_t son1, son2, son3;
+    int status;
+
+    son1 = fork();
+    if(son1 == 0)
+    {
+    	execl("./son1", "son1", NULL);
+        perror("execl son1 failed");
+        return 1;
+    }
+
+    son2 = fork();
+    if(son2 == 0)
+    {
+    	execl("./son2", "son2", NULL);
+        perror("execl son2 failed");
+        return 1;
+    }
+
+    son3 = fork();
+    if(son3 == 0)
+    {
+    	execl("./son3", "son3", NULL);
+        perror("execl son3 failed");
+        return 1;
+    }
+
+    sleep(2);
+    
+    // Отправляем сигналы дочерним процессам
+    kill(son1, SIGUSR1);  // son1 - обработка по умолчанию
+    kill(son2, SIGUSR1);  // son2 - игнорирование
+    kill(son3, SIGUSR1); // son3 - перехват и обработка
+
+    wait(NULL);
+    wait(NULL);
+    wait(NULL);
+    
+    return 0;
+}
+
+Первый дочерний процесс. Реакция на сигнал по умолчанию.
+user@user-VirtualBox:~/os_lab_2/task_3$ cat son1.c
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+
+int main()
+{
+	printf("Son1 (PID: %d, PPID: %d) started - default signal handling\n", getpid(), getppid());
+    
+    // Бесконечный цикл, чтобы процесс не завершился сразу
+    while(1) 
+    {
+        sleep(1);
+    }
+    
+    return 0;
+}
+
+Второй дочерний процесс.Реакция игнорирования.
+user@user-VirtualBox:~/os_lab_2/task_3$ cat son2.c
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+
+int main()
+{
+    printf("Son2 (PID: %d, PPID: %d) started - ignoring SIGUSR1\n", getpid(), getppid());
+    
+    // Устанавливаем игнорирование SIGUSR1
+    signal(SIGUSR1, SIG_IGN);
+    
+    // Бесконечный цикл, чтобы процесс не завершился сразу
+    while(1) 
+    {
+        sleep(1);
+    }
+    
+    return 0;
+}
+
+Третий дочерний процесс. Перехватывание и обработка сигнала.
+user@user-VirtualBox:~/os_lab_2/task_3$ cat son3.c
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <stdlib.h>
+
+void signal_handler(int sig) 
+{
+    printf("Son3 (PID: %d, PPID: %d) received SIGUSR1 signal %d\n", getpid(), getppid(), sig);
+    system("ps -s > after_signal.txt");
+}
+
+int main() 
+{
+    printf("Son3 (PID: %d, PPID: %d) started - custom signal handler\n", getpid(), getppid());
+    
+    // Устанавливаем обработчик сигнала
+    signal(SIGUSR1, signal_handler);
+    
+    // Бесконечный цикл
+    while(1) 
+    {
+        sleep(1);
+    }
+    
+    return 0;
+}
+
+son1 получает SIGUSR1 без обработчика - завершается (действие по умолчанию).
+son2 игнорирует, поэтому продолжает работу в бесконечном цикле.
+son3 перехватывает SIGUSR1, записывает работу в after_signal.txt
+
+user@user-VirtualBox:~/os_lab_2/task_3$ cat after_signal.txt
+  UID     PID          PENDING          BLOCKED          IGNORED           CAUGHT STAT TTY        TIME COMMAND
+ 1000    2227 0000000000000000 0000000000000000 0000000000001000 0000000100014000 Ssl+ tty2       0:00 /usr/libexec/gdm-wayland-session env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --session=ubuntu
+ 1000    2239 0000000000000000 0000000000000000 0000000000001000 0000000100004002 Sl+  tty2       0:00 /usr/libexec/gnome-session-binary --session=ubuntu
+ 1000    5333 0000000000000000 0000000000010000 0000000000384004 000000004b813efb Ss   pts/0      0:00 bash
+ 1000    5465 0000000000000000 0000000000000000 0000000000000000 0000000000000000 S+   pts/0      0:00 ./father
+ 1000    5467 0000000000000000 0000000000000000 0000000000000200 0000000000000000 S+   pts/0      0:00 son2
+ 1000    5468 0000000000000000 0000000000010200 0000000000000006 0000000000000200 S+   pts/0      0:00 son3
+ 1000    5469 0000000000000000 0000000000000000 0000000180000000 0000000000010002 S+   pts/0      0:00 sh -c ps -s > after_signal.txt
+ 1000    5470 0000000000000000 0000000000000000 0000000180000000 0000000073d1fef9 R+   pts/0      0:00 ps -s
+
+son1: по таблице видно, что данный процесс завершился
+
+son2: Дочерний процесс, который игнорирует SIGUSR1
+IGNORED=0000000000000200 – игнорирует SIGUSR1 (сигнал 10).
+В битовой маске 0200 (в восьмеричном формате) = 10 в десятичном (SIGUSR1).
+
+son3: Дочерний процесс, который перехватывает SIGUSR1.
+IGNORED=0000000000000006 – игнорирует сигналы SIGINT (2) и SIGQUIT (3)
+CAUGHT=0000000000000200 – перехватывает SIGUSR1 (10).
+
+3.2.
+Создается 2 дочерних процесса и ожидается завершения их работы: одного с помощью wait, другого с помощью waitpid
+user@user-VirtualBox:~/os_lab_2/task_3$ cat father_3_2.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <signal.h>
+
+int main()
+{
+	pid_t child1, child2;
+    int status1, status2;
+
+    // Создаем первого потомка
+    child1 = fork();
+    if (child1 == 0) {
+        printf("Потомок 1 (PID: %d) начал работу\n", getpid());
+        sleep(2);
+        printf("Потомок 1 завершается\n");
+        exit(10);  // Завершаем с кодом 10
+    }
+
+    // Создаем второго потомка
+    child2 = fork();
+    if (child2 == 0) {
+        printf("Потомок 2 (PID: %d) начал работу\n", getpid());
+        sleep(10);
+        printf("Потомок 2 завершается\n");
+        exit(20);  // Завершаем с кодом 20
+    }
+
+    printf("Родитель (PID: %d) создал потомков %d и %d\n", 
+           getpid(), child1, child2);
+
+    // Ожидаем первого потомка с помощью wait()
+    pid_t terminated_pid = wait(&status1);
+    if (terminated_pid == child1) {
+        printf("Родитель: потомок 1 (%d) завершился с кодом %d\n", 
+               child1, WEXITSTATUS(status1));
+    } else {
+        printf("Родитель: неожиданный потомок %d завершился\n", terminated_pid);
+    }
+
+    // Ожидаем второго потомка с помощью waitpid()
+    pid_t result = waitpid(child2, &status2, 0);
+    if (result == child2) {
+        printf("Родитель: потомок 2 (%d) завершился с кодом %d\n", 
+               child2, WEXITSTATUS(status2));
+    } else if (result == -1) {
+        perror("Ошибка waitpid");
+    }
+
+    printf("Родитель: все потомки завершены\n");
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_3$ ./father_3_2
+Родитель (PID: 6893) создал потомков 6894 и 6895
+Потомок 1 (PID: 6894) начал работу
+Потомок 2 (PID: 6895) начал работу
+Потомок 1 завершается
+Родитель: потомок 1 (6894) завершился с кодом 10
+Потомок 2 завершается
+Родитель: потомок 2 (6895) завершился с кодом 20
+Родитель: все потомки завершены
+
+wait() возвращает PID первого завершившегося потомка - первого.
+waitpid() с конкретным PID гарантированно дождется указанного процесса - второго.
+WEXITSTATUS(status) возвращает код возврата (если WIFEXITED верно, то есть выход был через exit).
+
+Связь wait() с SIGCHLD:
+При завершении потомка ядро отправляет родителю сигнал SIGCHLD (17).
+По умолчанию SIGCHLD игнорируется, но wait() всё равно может получить статус, поэтому будет уведомлен о завершение
+дочернего процесса.
+
+Задание 4.
+4.1. 
+Программа, которая создает потоки с помощью функций pthread_create(), clone().
+user@user-VirtualBox:~/os_lab_2$ cat task_4_1.c
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <sched.h>
+#include <sys/types.h>
+#include <sys/syscall.h>
+#include <sys/wait.h>
+
+// Функция для потока, созданного через pthread_create()
+void* thread_func(void* arg) {
+    int thread_num = *(int*)arg;
+    printf("Поток pthread %d: PID=%d, TID=%ld\n", 
+           thread_num, getpid(), syscall(SYS_gettid));
+    sleep(10);
+    printf("Поток pthread %d завершился : PID=%d, TID=%ld\n", 
+           thread_num, getpid(), syscall(SYS_gettid));
+    return NULL;
+}
+
+// Функция для потока, созданного через clone()
+int clone_func(void* arg) {
+    int thread_num = *(int*)arg;
+    printf("Поток clone %d: PID=%d, TID=%ld\n", 
+           thread_num, getpid(), syscall(SYS_gettid));
+    sleep(10);
+    printf("Поток clone %d завершился: PID=%d, TID=%ld\n", 
+           thread_num, getpid(), syscall(SYS_gettid));
+    return 0;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+    int num1 = 1;
+    
+    // Создаем два потока с помощью pthread_create()
+    pthread_create(&thread1, NULL, thread_func, &num1);
+    
+    // Создаем поток с помощью clone()
+    void* stack = malloc(8192);
+    if (stack == NULL) {
+        perror("malloc");
+        exit(1);
+    }
+    
+    int num2 = 2;
+    int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD;
+    pid_t clone_pid = clone(clone_func, stack + 8192, flags, &num2);
+    
+    printf("Основной поток: PID=%d, TID=%ld\n", getpid(), syscall(SYS_gettid));
+    
+    // Даем время поработать потокам
+    sleep(12);
+    
+    pthread_join(thread1, NULL);
+    waitpid(clone_pid, NULL, 0);
+    
+    free(stack);
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2$ ./task_4_1
+Основной поток: PID=4977, TID=4977
+Поток pthread 1: PID=4977, TID=4978
+Поток clone 2: PID=4977, TID=4979
+Поток pthread 1 завершился : PID=4977, TID=4978
+Поток clone 2 завершился: PID=4977, TID=4979
+
+4.2.
+user@user-VirtualBox:~/os_lab_2$ ps -eLf | grep ./task_4_1
+user        5037    4625    5037  0    3 19:33 pts/0    00:00:00 ./task_4_1
+user        5037    4625    5038  0    3 19:33 pts/0    00:00:00 ./task_4_1
+user        5037    4625    5039  0    3 19:33 pts/0    00:00:00 ./task_4_1
+user        5041    4868    5041  0    1 19:33 pts/1    00:00:00 grep --color=auto ./task_4_1
+
+У основого потока PID и TID совпадают и равны 5037
+Два дочерних потока имеют такой же PID = 5037, но разные TID 5038 и 5039
+Это подтверждает, что они принадлежат одному процессу.
+
+4.3.
+Для эксперимента добавим в программу 4.1. глобальную переменную.
+user@user-VirtualBox:~/os_lab_2$ cat task_4_3.c
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <pthread.h>
+#include <sched.h>
+#include <sys/types.h>
+#include <sys/syscall.h>
+#include <sys/wait.h>
+
+// Глобальные разделяемые ресурсы
+int shared_counter = 0;
+
+void* thread_func(void* arg) {
+    int thread_num = *(int*)arg;
+
+    shared_counter++;
+    printf("Поток %d: shared_counter = %d (TID=%ld)\n", 
+           thread_num, shared_counter, syscall(SYS_gettid));
+    
+    sleep(2);
+
+    printf("Поток pthread %d завершился : PID=%d, TID=%ld\n", 
+           thread_num, getpid(), syscall(SYS_gettid));
+    return NULL;
+}
+
+int clone_func(void* arg) {
+    int thread_num = *(int*)arg;
+    
+    shared_counter++;
+    printf("Поток clone %d: shared_counter = %d (TID=%ld)\n", 
+           thread_num, shared_counter, syscall(SYS_gettid));
+
+    sleep(2);
+
+    printf("Поток clone %d завершился: PID=%d, TID=%ld\n", 
+           thread_num, getpid(), syscall(SYS_gettid));
+    return 0;
+}
+
+int main() {
+    pthread_t thread1, thread2;
+    int num1 = 1, num2 = 2;
+    
+    pthread_create(&thread1, NULL, thread_func, &num1);
+    
+    void* stack = malloc(8192);
+    if (!stack) {
+        perror("malloc");
+        exit(1);
+    }
+    
+    int flags = CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | CLONE_THREAD;
+    pid_t clone_pid = clone(clone_func, stack + 8192, flags, &num2);
+    
+    pthread_join(thread1, NULL);
+    waitpid(clone_pid, NULL, 0);
+    
+    printf("Итоговое значение shared_counter: %d\n", shared_counter);
+    free(stack);
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2$ ./task_4_3
+Поток 1: shared_counter = 1 (TID=5157)
+Поток clone 2: shared_counter = 2 (TID=5158)
+Поток clone 2 завершился: PID=5156, TID=5158
+Поток pthread 1 завершился : PID=5156, TID=5157
+Итоговое значение shared_counter: 2
+
+Потоки разделяют адресное пространство (доступ к shared_counter и увеличение), файловые дескрипторы (stdout), память процесса, атрибуты процесса (PID)
+Флаги в clone() определяют, какие ресурсы процесса будут разделяться между родителем и новым потоком/процессом (виртуальная память, файловая система,
+файловые дескрипторы, обработчики сигналов, принадлежность к группе потоков).
+
+4.4.
+Увеличиваем время выполнения потоков. 
+user@user-VirtualBox:~/os_lab_2$ ./task_4_3
+Поток 1: shared_counter = 1 (TID=5237)
+Поток clone 2: shared_counter = 2 (TID=5238)
+Убито
+
+user@user-VirtualBox:~/os_lab_2$ kill -9 5238
+
+Поток clone был удален командой kill, но при этом завершается весь процесс. 
+Все потоки, созданные через pthread_create() или clone() с флагом CLONE_THREAD, принадлежат к одной группе потоков (имеют общий PID — идентификатор процесса).
+Сигнал SIGKILL доставляется не конкретному потоку, а всей группе.
+Также потоки имеют разделяемые ресурсы, поэтому усли бы можно было убить один поток, другие потоки могли бы остаться с поврежденными ресурсами
+
+Задание 5. 
+
+5.1. 
+Политика планирования и приоритет, установленные по умолчанию, для процессов и потоков, запускаемых пользователем из shell
+user@user-VirtualBox:~/os_lab_2/task_5$ ps -eo pid,comm,policy,pri,nice
+    PID COMMAND         POL PRI  NI
+      1 systemd         TS   19   0
+      2 kthreadd        TS   19   0
+      3 pool_workqueue_ TS   19   0
+      4 kworker/R-rcu_g TS   39 -20
+      5 kworker/R-rcu_p TS   39 -20
+      6 kworker/R-slub_ TS   39 -20
+      7 kworker/R-netns TS   39 -20
+     10 kworker/0:0H-ev TS   39 -20
+     12 kworker/R-mm_pe TS   39 -20
+     13 rcu_tasks_kthre TS   19   0
+     14 rcu_tasks_rude_ TS   19   0
+     15 rcu_tasks_trace TS   19   0
+     16 ksoftirqd/0     TS   19   0
+     17 rcu_preempt     TS   19   0
+     18 migration/0     FF  139   -
+ ...
+   5904 gnome-terminal- TS   19   0
+   5930 bash            TS   19   0
+   5949 kworker/u2:0-ev TS   19   0
+   5966 gjs             TS   19   0
+   6039 kworker/0:4-cgr TS   19   0
+   6120 bash            TS   19   0
+   6134 ps              TS   19   0
+
+Программа, которая выводит последнюю цифру PID, родительский процесс печатает P
+user@user-VirtualBox:~/os_lab_2/task_5$ cat task_5_1.c
+#include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/wait.h>
+
+#define ITERATIONS 100
+
+int main() {
+    for (int i = 0; i < 3; i++) {
+        if (fork() == 0) {
+            pid_t my_pid = getpid();
+            char ch = '0' + (my_pid % 10);
+            for (int j = 0; j < ITERATIONS; j++) {
+                printf("%c", ch);
+                fflush(stdout);
+            }
+            exit(0);
+        }
+    }
+
+    char ch = 'P';
+    for (int j = 0; j < ITERATIONS; j++) {
+        printf("%c", ch);
+        fflush(stdout);
+    }
+
+    // Ждём завершения всех дочерних процессов
+    for (int i = 0; i < 3; i++) {
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+
+ser@user-VirtualBox:~/os_lab_2/task_5$ gcc task_5_1.c -o 5_1
+user@user-VirtualBox:~/os_lab_2/task_5$ ./5_1
+P1112111111111111111131111111113331331333312311111111111111111111111111111111111111111111111111111111111111111111132332332332332332332P2332P
+333333333333333333333333333333333333333333333333333333333333333333333333332P2P2P2P2P2P2P2P2P222222222222222222222222222222222222222222222222
+22222222222222222222222222222222PPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP
+
+Последовательность будет зависеть от планировщика, но при SCHED_OTHER и одинаковом nice процессы будут чередоваться относительно равномерно.
+Все процессы получают доступ к CPU, но порядок и длительность исполнения варьируются.
+По выводу видно, что как раз у них одинаковые nice и политика.
+user@user-VirtualBox:~/os_lab_2/task_5$ ps -eo pid,comm,policy,pri,nice|grep 5_1
+   5962 5_1             TS   19   0
+   5963 5_1             TS   19   0
+   5964 5_1             TS   19   0
+   5965 5_1             TS   19   0
+
+
+5.2.
+nice: Позволяет запускать процесс с заданным значением nice (от -20 до 19, где -20 — максимальный приоритет, 19 — минимальный).
+Обычный пользователь может только увеличивать nice (уменьшать приоритет), а root может задавать и отрицательные значения.
+Функция getpriority возвращает текущее значение nice для процесса, группы процессов или пользователя.
+Программа, где меняем приоритет программы и получаем новый.
+user@user-VirtualBox:~/os_lab_2/task_5$ cat task_5_2_2.c
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+
+int main() {
+    int priority;
+
+    // Получаем текущий приоритет процесса (по умолчанию)
+    priority = getpriority(PRIO_PROCESS, 0);
+    printf("Initial priority: %d\n", priority);
+
+    // Изменяем приоритет с помощью nice
+    if (nice(10) == -1) {
+        perror("Failed to change priority");
+        return 1;
+    }
+
+    // Получаем новый приоритет после изменения
+    priority = getpriority(PRIO_PROCESS, 0);
+    printf("New priority after nice(10): %d\n", priority);
+
+    // Пытаемся изменить приоритет в обратную сторону
+    if (nice(-5) == -1) {
+        perror("Failed to change priority");
+        return 1;
+    }
+
+    // Получаем приоритет после изменения
+    priority = getpriority(PRIO_PROCESS, 0);
+    printf("New priority after nice(-5): %d\n", priority);
+
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_2_2
+Initial priority: 0
+New priority after nice(10): 10
+New priority after nice(-5): 5
+
+Программа, где несколько процессов и у них различные приоритеты при выполнении.
+user@user-VirtualBox:~/os_lab_2/task_5$ cat task_5_2.c
+#include <stdio.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <sys/time.h>
+#include <sys/resource.h>
+#include <sched.h> // Для sched_yield
+
+#define ITERATIONS 1000
+#define NUM_PROCESSES 3
+
+// Небольшая вычислительная нагрузка
+void compute_load() {
+    volatile int j;
+    for (int i = 0; i < 1000; i++) {
+        for (j = 0; j < 1000; j++) { }
+    }
+}
+
+int main() {
+    // Запускаем несколько процессов
+    for (int i = 0; i < NUM_PROCESSES; i++) {
+        pid_t pid = fork();  // Дочерний процесс
+        if (pid == 0) {
+            // Для каждого дочернего процесса устанавливаем приоритет
+            int priority = 10 - i;  // Разные приоритеты для каждого процесса
+            setpriority(PRIO_PROCESS, getpid(), priority);  // Устанавливаем приоритет
+
+            pid_t pid = getpid();
+            int prio = getpriority(PRIO_PROCESS, 0);  // Получаем приоритет
+            printf("PID: %d, priority (nice): %d\n", pid, prio);
+
+            for (int i = 0; i < ITERATIONS; i++) {
+                compute_load();  // Нагрузка для процессора
+                printf("%d", pid % 10); // Печатаем последнюю цифру PID
+                fflush(stdout);
+                sched_yield();  // Отдаём процессор другому процессу
+            }
+
+            return 0;  // Завершаем дочерний процесс
+        }
+    }
+
+    // Родительский процесс, для него установим приоритет
+    setpriority(PRIO_PROCESS, getpid(), 5);  // Родительский процесс с приоритетом 5
+
+    for (int i = 0; i < ITERATIONS; i++) {
+        compute_load();  // Нагрузка для процессора
+        printf("P");  // Печатаем 'P' для родителя
+        fflush(stdout);
+        sched_yield();  // Отдаём процессор другому процессу
+    }
+
+    // Ожидаем завершения всех дочерних процессов
+    for (int i = 0; i < NUM_PROCESSES; i++) {
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_5$ ./5_2
+PID: 6164, priority (nice): 10
+4PID: 6165, priority (nice): 9
+5PID: 6166, priority (nice): 8
+6PP6P56P4P5P6P46P5P6P54P6P5P6P45P6465645PP6P54P6P5P6P4P65P4P6P5P64PPPPP6P64P6P4P66P54P5P6P45P6P6P5P4P65
+P4566546PP4P56P6P54P5P6P64P5P655466544P6P5P6P4P56P4P5P6P6P54P6P5P6P4P56P4P5P6P64P5P6P5P64P6P5P4P56P6P4P5
+6P4P5P64P556664P5P6P4P56P4P5P6P64P5P6P5P6PPPPP5P5P56P6P5P65P6P6P56P4P4PPPP4P6P46P6P6P4P66P56P5P4P6P54P6PP
+PPPP4P4P66P6P4P6P6P64P6P65P65PP46P5P4P55PPPPP5PP445PP4P65P4P65P6P4P5P6P465546564665PPPPP4P56P4P5P6P465PP6P
+5P46P45PP6P56P4P65PP64P5P6P45P6P6P5P4P5P5PPPP5P4P4P5P46P5P6P5P5P6PP56PP65PP6PP56PP65PP6P654PP6P45PP65P4P65P
+Из вывода видно, что процессы чей приоритет меньше появляются чаще, у родительского процесса приоритет 5, поэтому чаще видна буква Р
+
+5.3.
+5.3.1.
+Программа, где была изменена процедура планирования на FIFO. У процессов одинаковые приоритеты.
+user@user-VirtualBox:~/os_lab_2/task_5$ cat task_5_3.c
+#include <stdio.h>
+#include <unistd.h>
+#include <sched.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+    struct sched_param param;
+
+    // Первый процесс с приоритетом 20
+    param.sched_priority = 10;
+    if (sched_setscheduler(0, SCHED_FIFO, &param) == -1) {
+        perror("sched_setscheduler failed for process 1");
+        return 1;
+    }
+
+    // Создание первого дочернего процесса с приоритетом 15
+    pid_t pid1 = fork();
+    if (pid1 == 0) {
+        param.sched_priority = 10;
+        sched_setscheduler(0, SCHED_FIFO, &param);
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+        }
+        return 0;
+    }
+
+    // Второй дочерний процесс с приоритетом 10
+    pid_t pid2 = fork();
+    if (pid2 == 0) {
+        param.sched_priority = 10;
+        sched_setscheduler(0, SCHED_FIFO, &param);
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+        }
+        return 0;
+    }
+
+    // Третий дочерний процесс с приоритетом 30
+    pid_t pid3 = fork();
+    if (pid3 == 0) {
+        param.sched_priority = 10;
+        sched_setscheduler(0, SCHED_FIFO, &param);
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+        }
+        return 0;
+    }
+
+    // Ожидание завершения дочерних процессов
+    for (int i = 0; i < 3; i++) {
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_3
+PID: 6981, Priority: 10, Iteration: 0
+PID: 6981, Priority: 10, Iteration: 1
+PID: 6981, Priority: 10, Iteration: 2
+PID: 6981, Priority: 10, Iteration: 3
+PID: 6981, Priority: 10, Iteration: 4
+PID: 6982, Priority: 10, Iteration: 0
+PID: 6982, Priority: 10, Iteration: 1
+PID: 6982, Priority: 10, Iteration: 2
+PID: 6982, Priority: 10, Iteration: 3
+PID: 6982, Priority: 10, Iteration: 4
+PID: 6983, Priority: 10, Iteration: 0
+PID: 6983, Priority: 10, Iteration: 1
+PID: 6983, Priority: 10, Iteration: 2
+PID: 6983, Priority: 10, Iteration: 3
+PID: 6983, Priority: 10, Iteration: 4
+
+Видно, что процессы с одинаковым приоритетом в FIFO запускаются последовательно, что соответсвует данной политикею
+
+
+5.3.2.
+Программа для определения границ приоритетов
+user@user-VirtualBox:~/os_lab_2/task_5$ cat task_5_3_2.c
+#include <stdio.h>
+#include <sched.h>
+
+int main() {
+    int min = sched_get_priority_min(SCHED_FIFO);
+    int max = sched_get_priority_max(SCHED_FIFO);
+    printf("SCHED_FIFO priority range: %d - %d\n", min, max);
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_3_2
+SCHED_FIFO priority range: 1 - 99
+
+5.3.3
+Модифицируем программу из 5.3.1, изменив приоритеты у некоторых процессов.
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_3
+PID: 7013, Priority: 20, Iteration: 0
+PID: 7013, Priority: 20, Iteration: 1
+PID: 7013, Priority: 20, Iteration: 2
+PID: 7013, Priority: 20, Iteration: 3
+PID: 7013, Priority: 20, Iteration: 4
+PID: 7012, Priority: 15, Iteration: 0
+PID: 7012, Priority: 15, Iteration: 1
+PID: 7012, Priority: 15, Iteration: 2
+PID: 7012, Priority: 15, Iteration: 3
+PID: 7012, Priority: 15, Iteration: 4
+PID: 7014, Priority: 10, Iteration: 0
+PID: 7014, Priority: 10, Iteration: 1
+PID: 7014, Priority: 10, Iteration: 2
+PID: 7014, Priority: 10, Iteration: 3
+PID: 7014, Priority: 10, Iteration: 4
+
+Видно, что сначала выполняется программы с наибольшим приоритетом, переходя к наименьшим. 
+
+5.4.
+Программа, где была изменена процедура планирования на RR. У процессов одинаковые приоритеты.
+#include <stdio.h>
+#include <unistd.h>
+#include <sched.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+    struct sched_param param;
+
+    // Устанавливаем политику планирования SCHED_RR для главного процесса
+    param.sched_priority = 20;
+    if (sched_setscheduler(0, SCHED_RR, &param) == -1) {
+        perror("sched_setscheduler failed for main process");
+        return 1;
+    }
+
+    // Создание первого дочернего процесса с приоритетом 20
+    pid_t pid1 = fork();
+    if (pid1 == 0) {
+        param.sched_priority = 20;
+        sched_setscheduler(0, SCHED_RR, &param);
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+            sched_yield();   // Явное уступление процессора
+        }
+        return 0;
+    }
+
+    // Второй дочерний процесс с приоритетом 15
+    pid_t pid2 = fork();
+    if (pid2 == 0) {
+        param.sched_priority = 20;
+        sched_setscheduler(0, SCHED_RR, &param);
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+            sched_yield();   // Явное уступление процессора
+        }
+        return 0;
+    }
+
+    // Третий дочерний процесс с приоритетом 10
+    pid_t pid3 = fork();
+    if (pid3 == 0) {
+        param.sched_priority = 20;
+        sched_setscheduler(0, SCHED_RR, &param);
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+            sched_yield();   // Явное уступление процессора
+        }
+        return 0;
+    }
+
+    // Ожидание завершения дочерних процессов
+    for (int i = 0; i < 3; i++) {
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_4
+PID: 7192, Priority: 20, Iteration: 0
+PID: 7193, Priority: 20, Iteration: 0
+PID: 7194, Priority: 20, Iteration: 0
+PID: 7192, Priority: 20, Iteration: 1
+PID: 7193, Priority: 20, Iteration: 1
+PID: 7194, Priority: 20, Iteration: 1
+PID: 7192, Priority: 20, Iteration: 2
+PID: 7193, Priority: 20, Iteration: 2
+PID: 7194, Priority: 20, Iteration: 2
+PID: 7192, Priority: 20, Iteration: 3
+PID: 7193, Priority: 20, Iteration: 3
+PID: 7194, Priority: 20, Iteration: 3
+PID: 7192, Priority: 20, Iteration: 4
+PID: 7193, Priority: 20, Iteration: 4
+PID: 7194, Priority: 20, Iteration: 4
+
+Видно, что процессы сменяют друг друга, когда у них одинаковые приоритеты.
+
+Теперь делаем, чтобы приоритеты были различные.
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_4
+PID: 7432, Priority: 40, Iteration: 0
+PID: 7432, Priority: 40, Iteration: 1
+PID: 7432, Priority: 40, Iteration: 2
+PID: 7432, Priority: 40, Iteration: 3
+PID: 7432, Priority: 40, Iteration: 4
+PID: 7433, Priority: 20, Iteration: 0
+PID: 7433, Priority: 20, Iteration: 1
+PID: 7433, Priority: 20, Iteration: 2
+PID: 7433, Priority: 20, Iteration: 3
+PID: 7433, Priority: 20, Iteration: 4
+PID: 7431, Priority: 10, Iteration: 0
+PID: 7431, Priority: 10, Iteration: 1
+PID: 7431, Priority: 10, Iteration: 2
+PID: 7431, Priority: 10, Iteration: 3
+PID: 7431, Priority: 10, Iteration: 4
+
+Выполнение похоже как у FIFO. Сначала с наибольшим приоритетом(40), затем с приоритетом 20 и только потом с приоритетом 10.
+
+Определение величины кванта
+user@user-VirtualBox:~/os_lab_2/task_5$ cat /proc/sys/kernel/sched_rr_timeslice_ms
+100
+
+5.5.
+Возьмем программу из предыдущих пунктов и возьмем политики FIFO и RR.
+#include <stdio.h>
+#include <unistd.h>
+#include <sched.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+    struct sched_param param;
+
+    // Устанавливаем уникальные приоритеты для процессов
+    param.sched_priority = 20;
+
+    // Устанавливаем политику SCHED_FIFO для главного процесса
+    if (sched_setscheduler(0, SCHED_FIFO, &param) == -1) {
+        perror("sched_setscheduler failed for main process");
+        return 1;
+    }
+
+    // Создание первого дочернего процесса с политикой SCHED_FIFO (приоритет 20)
+    pid_t pid1 = fork();
+    if (pid1 == 0) {
+        param.sched_priority = 10;
+        sched_setscheduler(0, SCHED_FIFO, &param);  // Использование FIFO
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Policy: FIFO, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+        }
+        return 0;
+    }
+
+    // Второй дочерний процесс с политикой SCHED_FIFO (приоритет 30)
+    pid_t pid2 = fork();
+    if (pid2 == 0) {
+        param.sched_priority = 30;  // Более высокий приоритет
+        sched_setscheduler(0, SCHED_FIFO, &param);  // Использование FIFO
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Policy: FIFO, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+        }
+        return 0;
+    }
+
+    // Создание первого дочернего процесса с политикой SCHED_RR (приоритет 20)
+    pid_t pid3 = fork();
+    if (pid3 == 0) {
+        param.sched_priority = 20;
+        sched_setscheduler(0, SCHED_RR, &param);  // Использование RR
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Policy: RR, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+            sched_yield();   // Явное уступление процессора
+        }
+        return 0;
+    }
+
+    // Второй дочерний процесс с политикой SCHED_RR (приоритет 60)
+    pid_t pid4 = fork();
+    if (pid4 == 0) {
+        param.sched_priority = 60;  // Более высокий приоритет
+        sched_setscheduler(0, SCHED_RR, &param);  // Использование RR
+        for (int i = 0; i < 5; i++) {
+            printf("PID: %d, Policy: RR, Priority: %d, Iteration: %d\n", getpid(), param.sched_priority, i);
+            fflush(stdout);  // Принудительное сбрасывание буфера
+            sched_yield();   // Явное уступление процессора
+        }
+        return 0;
+    }
+
+    // Ожидание завершения дочерних процессов
+    for (int i = 0; i < 4; i++) {
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+Если будут одинаковые приоритеты, то вывод такойя:
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_5
+PID: 7995, Policy: FIFO, Priority: 20, Iteration: 0
+PID: 7995, Policy: FIFO, Priority: 20, Iteration: 1
+PID: 7995, Policy: FIFO, Priority: 20, Iteration: 2
+PID: 7995, Policy: FIFO, Priority: 20, Iteration: 3
+PID: 7995, Policy: FIFO, Priority: 20, Iteration: 4
+PID: 7996, Policy: FIFO, Priority: 20, Iteration: 0
+PID: 7996, Policy: FIFO, Priority: 20, Iteration: 1
+PID: 7996, Policy: FIFO, Priority: 20, Iteration: 2
+PID: 7996, Policy: FIFO, Priority: 20, Iteration: 3
+PID: 7996, Policy: FIFO, Priority: 20, Iteration: 4
+PID: 7997, Policy: RR, Priority: 20, Iteration: 0
+PID: 7998, Policy: RR, Priority: 20, Iteration: 0
+PID: 7997, Policy: RR, Priority: 20, Iteration: 1
+PID: 7998, Policy: RR, Priority: 20, Iteration: 1
+PID: 7997, Policy: RR, Priority: 20, Iteration: 2
+PID: 7998, Policy: RR, Priority: 20, Iteration: 2
+PID: 7997, Policy: RR, Priority: 20, Iteration: 3
+PID: 7998, Policy: RR, Priority: 20, Iteration: 3
+PID: 7997, Policy: RR, Priority: 20, Iteration: 4
+PID: 7998, Policy: RR, Priority: 20, Iteration: 4
+
+Сначала выполняется FIFO, выполняя один процесс, затем второй. Потом RR, который чередует процессы между собой.
+
+Различные приоритеты:
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_5
+PID: 8718, Policy: FIFO, Priority: 30, Iteration: 0
+PID: 8718, Policy: FIFO, Priority: 30, Iteration: 1
+PID: 8718, Policy: FIFO, Priority: 30, Iteration: 2
+PID: 8718, Policy: FIFO, Priority: 30, Iteration: 3
+PID: 8718, Policy: FIFO, Priority: 30, Iteration: 4
+PID: 8719, Policy: RR, Priority: 20, Iteration: 0
+PID: 8720, Policy: RR, Priority: 60, Iteration: 0
+PID: 8720, Policy: RR, Priority: 60, Iteration: 1
+PID: 8720, Policy: RR, Priority: 60, Iteration: 2
+PID: 8720, Policy: RR, Priority: 60, Iteration: 3
+PID: 8720, Policy: RR, Priority: 60, Iteration: 4
+PID: 8719, Policy: RR, Priority: 20, Iteration: 1
+PID: 8719, Policy: RR, Priority: 20, Iteration: 2
+PID: 8719, Policy: RR, Priority: 20, Iteration: 3
+PID: 8719, Policy: RR, Priority: 20, Iteration: 4
+PID: 8717, Policy: FIFO, Priority: 10, Iteration: 0
+PID: 8717, Policy: FIFO, Priority: 10, Iteration: 1
+PID: 8717, Policy: FIFO, Priority: 10, Iteration: 2
+PID: 8717, Policy: FIFO, Priority: 10, Iteration: 3
+PID: 8717, Policy: FIFO, Priority: 10, Iteration: 4
+
+Сначала выполняется наивысший приоритет у FIFO, затем RR с приоритетами 60 и 20 и только потом меньший приоритет у FIFO.
+FIFO выполняется раньше, потому что его политика имеет более высокий приоритет в плане использования процессора по сравнению с RR.
+
+5.6.
+5.6.1.
+Программа, которая создает потоки с различными политиками и одинаковыми приоритетами.
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <pthread.h>
+#include <sched.h>
+#include <unistd.h>
+
+// Функция для активной работы (без sleep)
+void* thread_work(void* arg) {
+    int id = *(int*)arg;  // Получаем идентификатор потока
+    for (int i = 0; i < 5; i++) {
+        printf("Thread %d: step %d\n", id, i);
+        // Активная работа (имитация вычислений)
+        for (volatile int j = 0; j < 1000000; j++);
+    }
+    return NULL;
+}
+
+int main() {
+    pthread_t t1, t2, t3;
+    pthread_attr_t attr_fifo, attr_rr, attr_other;
+    struct sched_param param = { .sched_priority = 50 }; // Одинаковый приоритет
+
+    // Настройка атрибутов для FIFO
+    pthread_attr_init(&attr_fifo);
+    pthread_attr_setschedpolicy(&attr_fifo, SCHED_FIFO);
+    pthread_attr_setschedparam(&attr_fifo, &param);
+    pthread_attr_setinheritsched(&attr_fifo, PTHREAD_EXPLICIT_SCHED);
+
+    // Настройка атрибутов для RR
+    pthread_attr_init(&attr_rr);
+    pthread_attr_setschedpolicy(&attr_rr, SCHED_RR);
+    pthread_attr_setschedparam(&attr_rr, &param);
+    pthread_attr_setinheritsched(&attr_rr, PTHREAD_EXPLICIT_SCHED);
+
+    // Настройка атрибутов для OTHER
+    pthread_attr_init(&attr_other);
+    pthread_attr_setschedpolicy(&attr_other, SCHED_OTHER);
+    pthread_attr_setschedparam(&attr_other, &param);
+    pthread_attr_setinheritsched(&attr_other, PTHREAD_EXPLICIT_SCHED);
+
+    int id1 = 1, id2 = 2, id3 = 3;
+
+    // === Эксперимент 1: Все потоки в SCHED_OTHER ===
+    /*pthread_create(&t1, &attr_other, thread_work, &id1);
+    pthread_create(&t2, &attr_other, thread_work, &id2);
+    pthread_create(&t3, &attr_other, thread_work, &id3);*/
+
+    // === Эксперимент 2: Один FIFO, остальные OTHER ===
+    /*pthread_create(&t1, &attr_fifo, thread_work, &id1);
+    pthread_create(&t2, &attr_other, thread_work, &id2);
+    pthread_create(&t3, &attr_other, thread_work, &id3);*/
+
+    // === Эксперимент 3: Один RR, остальные OTHER ===
+    /*pthread_create(&t1, &attr_rr, thread_work, &id1);
+    pthread_create(&t2, &attr_other, thread_work, &id2);
+    pthread_create(&t3, &attr_other, thread_work, &id3);*/
+
+    // === Эксперимент 4: FIFO, RR, OTHER (все вместе) ===
+    pthread_create(&t1, &attr_fifo, thread_work, &id1);
+    pthread_create(&t2, &attr_rr, thread_work, &id2);
+    pthread_create(&t3, &attr_other, thread_work, &id3);
+
+    // Ожидание завершения всех потоков
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
+    pthread_join(t3, NULL);
+
+    return 0;
+}
+
+Проверка 4 эксперимента, где все политики различные:
+user@user-VirtualBox:~/os_lab_2/task_5$ sudo ./5_6_1
+Thread 1: step 0
+Thread 1: step 1
+Thread 1: step 2
+Thread 1: step 3
+Thread 1: step 4
+Thread 2: step 0
+Thread 2: step 1
+Thread 2: step 2
+Thread 2: step 3
+Thread 2: step 4
+Thread 3: step 0
+Thread 3: step 1
+Thread 3: step 2
+Thread 3: step 3
+Thread 3: step 4
+
+Поток с SCHED_FIFO будет иметь наивысший приоритет и должен завершить свою работу первым. 
+После его завершения, поток с SCHED_RR будет планироваться, а затем поток с SCHED_OTHER.. 
+Эти результаты совпадают с предыдущими пунктами. 
+
+5.6.2.
+SCHED_FIFO (First In First Out): Потоки с этой политикой выполняются по очереди в порядке их поступления, при этом они имеют наибольший приоритет.
+Потоки с SCHED_FIFO выполняются до тех пор, пока не завершат выполнение или не уступят процессор другому потоку с таким же приоритетом. 
+Если у потока более высокий приоритет, он будет выполняться первым.
+SCHED_RR (Round Robin): Потоки с этой политикой выполняются по очереди, но с квантованием времени. 
+В случае нескольких потоков с одинаковым приоритетом, каждый из них получает фиксированное время на выполнение (квант времени), после чего переходит к следующему потоку.
+SCHED_OTHER: Потоки с этой политикой управляются стандартным планировщиком Linux, где приоритеты не играют такой большой роли. 
+Потоки могут быть приостановлены планировщиком, и их выполнение зависит от других факторов, таких как загрузка процессора и взаимодействие с другими потоками.
+
+Задание 6.
+6.1.
+Программа с родителем и потоком по доступу к одному файлу
+user@user-VirtualBox:~/os_lab_2/task_6$ cat task_6_1.c
+#include <stdio.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+int main() {
+    // Открытие файла для записи (если файл не существует, он будет создан)
+    int fd = open("testfile.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (fd == -1) {
+        perror("open");
+        return 1;
+    }
+
+    // Создание дочернего процесса
+    pid_t pid = fork();
+    if (pid < 0) {
+        perror("fork");
+        return 1;
+    }
+
+    if (pid == 0) {
+        // Дочерний процесс
+        char child_message[] = "Child process wrote this line!\n";
+        write(fd, child_message, sizeof(child_message) - 1);
+    } else {
+        // Родительский процесс
+        char parent_message[] = "Parent process wrote this line.\n";
+        write(fd, parent_message, sizeof(parent_message) - 1);
+    }
+
+    close(fd);  // Закрытие файла
+    return 0;
+}
+user@user-VirtualBox:~/os_lab_2/task_6$ cat testfile.txt 
+Parent process wrote this line.
+Child process wrote this line!
+
+6.2.
+Наследование приоритетов и политики планирования
+user@user-VirtualBox:~/os_lab_2/task_6$ cat task_6_2.c
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/wait.h>
+#include <sched.h>
+
+void print_scheduling_info(const char *who) {
+    int policy = sched_getscheduler(0);
+    struct sched_param param;
+    sched_getparam(0, &param);
+    printf("%s: policy=%s, priority=%d\n", who,
+           (policy == SCHED_FIFO) ? "FIFO" :
+           (policy == SCHED_RR) ? "RR" : "OTHER",
+           param.sched_priority);
+}
+
+int main() {
+    // Устанавливаем политику и приоритет родителя (например, SCHED_RR)
+    struct sched_param param = { .sched_priority = 50 };
+    sched_setscheduler(0, SCHED_RR, &param);
+
+    print_scheduling_info("Parent before fork");
+
+    pid_t pid = fork();
+    if (pid == 0) {
+        // Дочерний процесс
+        print_scheduling_info("Child after fork");
+        _exit(0);
+    } else {
+        wait(NULL); // Ждём завершения потомка
+    }
+
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_6$ sudo ./6_2
+Parent before fork: policy=RR, priority=50
+Child after fork: policy=RR, priority=50
+
+6.3.
+Диспозиция и наследование сигналов
+user@user-VirtualBox:~/os_lab_2/task_6$ cat task_6_3.c
+#include <stdio.h>
+#include <signal.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+void handler(int sig) {
+    printf("Caught signal %d in PID=%d\n", sig, getpid());
+}
+
+int main() {
+    // Устанавливаем обработчик для SIGUSR1
+    signal(SIGUSR1, handler);
+
+    printf("Parent (PID=%d) set SIGUSR1 handler\n", getpid());
+
+    pid_t pid = fork();
+    if (pid == 0) {
+        // Дочерний процесс
+        printf("Child (PID=%d) waiting for SIGUSR1...\n", getpid());
+        pause(); // Ждём сигнал
+    } else {
+        // Родитель отправляет SIGUSR1 потомку
+        sleep(1);
+        kill(pid, SIGUSR1);
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_6$ ./6_3
+Parent (PID=10115) set SIGUSR1 handler
+Child (PID=10116) waiting for SIGUSR1...
+Caught signal 10 in PID=10116
+
+После вызова fork() дочерний процесс наследует диспозиции сигналов от родительского процесса. 
+Это значит, что обработчики сигналов, установленные в родительском процессе будут также применяться и к дочернему процессу.
+
+user@user-VirtualBox:~/os_lab_2/task_6$ cat father_6_3.c
+#include <stdio.h>
+#include <signal.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/wait.h> 
+
+void signal_handler(int sig) {
+    printf("Received signal %d in process %d\n", sig, getpid());
+}
+
+int main() {
+    // Устанавливаем обработчик сигнала SIGINT
+    signal(SIGINT, signal_handler);
+
+    printf("Parent process (PID %d) - sending SIGINT to itself...\n", getpid());
+
+    // Отправляем SIGINT самому себе
+    kill(getpid(), SIGINT);
+
+    // Ждем немного, чтобы обработать сигнал
+    sleep(2);
+
+    // Создаем дочерний процесс
+    pid_t pid = fork();
+    
+    if (pid == 0) {
+        // Дочерний процесс
+        printf("Child process (PID %d) - calling exec() for program2...\n", getpid());
+        
+        // Заменяем образ дочернего процесса на программу program2
+        execl("./son_6_3", "son_6_3", NULL);
+        
+        // Если exec() не удастся, выводим ошибку
+        perror("exec failed");
+    } else if (pid > 0) {
+        // Родительский процесс
+        printf("Parent process (PID %d) - waiting for child to finish...\n", getpid());
+        wait(NULL);  // Ожидаем завершения дочернего процесса
+    }
+
+    printf("End of main program\n");
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_6$ cat son_6_3.c
+#include <stdio.h>
+#include <unistd.h>
+#include <signal.h>
+#include <stdlib.h>
+
+void signal_handler(int sig) {
+    printf("Received signal %d in process %d\n", sig, getpid());
+}
+
+int main() {
+    // Устанавливаем обработчик для SIGINT, чтобы увидеть как он будет обработан до exec()
+    signal(SIGINT, signal_handler);
+    
+    printf("Program2 started (PID %d) - will now send SIGINT to self...\n", getpid());
+
+    // Отправляем сигнал SIGINT самому себе
+    kill(getpid(), SIGINT);
+
+    // Если обработчик есть, он будет вызван, иначе процесс завершится
+    sleep(2);
+
+    // В случае успешного exec() следующий код не будет выполнен
+    printf("Program2 (PID %d) is finished.\n", getpid());
+    return 0;
+}
+
+user@user-VirtualBox:~/os_lab_2/task_6$ ./father_6_3
+Parent process (PID 10334) - sending SIGINT to itself...
+Received signal 2 in process 10334
+Parent process (PID 10334) - waiting for child to finish...
+Child process (PID 10335) - calling exec() for program2...
+Program2 started (PID 10335) - will now send SIGINT to self...
+Received signal 2 in process 10335
+Program2 (PID 10335) is finished.
+End of main program
+
+При вызове exec() диспозиции сигналов установленные сбрасываются. 
+Это значит, что в новом процессе (после exec()) больше не будут действовать обработчики сигналов, установленные в процессе до выполнения exec().
+
+6.4.
+clone() — это системный вызов, который создает новый процесс или поток, но в отличие от fork(), он позволяет более гибко контролировать, что будет наследоваться, а что нет.
+user@user-VirtualBox:~/os_lab_2/task_6$ cat task_6_4.c
+#define _GNU_SOURCE
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sched.h>
+#include <sys/wait.h>
+
+int child_func(void *arg) {
+    printf("Child process (PID %d)\n", getpid());
+    //fflush(stdout);
+    return 0;
+}
+
+int main() {
+    setbuf(stdout, NULL); // отключаем буферизацию вывода
+
+    char *stack = malloc(1024 * 1024);
+    if (!stack) {
+        perror("malloc");
+        return 1;
+    }
+
+    printf("Parent process (PID %d)\n", getpid());
+
+    pid_t pid = clone(child_func, stack + 1024 * 1024,
+                      CLONE_VM | CLONE_FS | CLONE_FILES | CLONE_SIGHAND | SIGCHLD, NULL);
+    
+    if (pid == -1) {
+        perror("clone");
+        free(stack);
+        return 1;
+    }
+    waitpid(pid, NULL, 0);
+
+    free(stack);
+    return 0;
+}
+user@user-VirtualBox:~/os_lab_2/task_6$ ./6_4
+Parent process (PID 10512)
+Child process (PID 10513)
