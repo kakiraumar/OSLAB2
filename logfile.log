@@ -314,3 +314,55 @@ umar@numbat:~/Desktop/OS-LABS$ ls
 aaa  bbb  logfile.log  test2.txt
 
 
+**Удаляет файлы команда rm :
+
+umar@numbat:~/Desktop/OS-LABS$ rm test1.txt test2.txt 
+rm: cannot remove 'test1.txt': No such file or directory
+
+umar@numbat:~/Desktop/OS-LABS$ rm aaa bbb
+umar@numbat:~/Desktop/OS-LABS$ ls
+logfile.log
+
+** Работа с каталогами.
+
+
+umar@numbat:~/Desktop/OS-LABS$ pwd
+/home/umar/Desktop/OS-LABS
+umar@numbat:~/Desktop/OS-LABS$ ls
+logfile.log
+umar@numbat:~/Desktop/OS-LABS$ touch prog.c
+umar@numbat:~/Desktop/OS-LABS$ ls prog.c 
+prog.c
+umar@numbat:~/Desktop/OS-LABS$ ls
+logfile.log  prog.c
+umar@numbat:~/Desktop/OS-LABS$ ls -l
+total 0
+-rw-rw-r-- 1 umar umar 0 May  8 12:01 logfile.log
+-rw-rw-r-- 1 umar umar 0 May  8 12:40 prog.c
+umar@numbat:~/Desktop/OS-LABS$ cd ..
+umar@numbat:~/Desktop$ cd ..
+umar@numbat:~$ cd ..
+umar@numbat:/home$ cd ..
+umar@numbat:/$ ls
+bin                dev   lib.usr-is-merged  opt   sbin                swap.img  var
+bin.usr-is-merged  etc   lost+found         proc  sbin.usr-is-merged  sys
+boot               home  media              root  snap                tmp
+cdrom              lib   mnt                run   srv                 usr
+
+umar@numbat:/$ cd home/umar/Desktop/OS-LABS/
+umar@numbat:~/Desktop/OS-LABS$ ls
+logfile.log  prog.c
+umar@numbat:~/Desktop/OS-LABS$ mkdir sub-dir
+umar@numbat:~/Desktop/OS-LABS$ cd sub-dir/
+umar@numbat:~/Desktop/OS-LABS/sub-dir$ cp ../prog.c ./
+umar@numbat:~/Desktop/OS-LABS/sub-dir$ ls
+prog.c
+umar@numbat:~/Desktop/OS-LABS/sub-dir$ cd ..
+umar@numbat:~/Desktop/OS-LABS$ rmdir sub-dir/
+rmdir: failed to remove 'sub-dir/': Directory not empty
+umar@numbat:~/Desktop/OS-LABS$ rm sub-dir/prog.c 
+umar@numbat:~/Desktop/OS-LABS$ rmdir sub-dir/
+
+
+
+
