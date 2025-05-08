@@ -1,1 +1,316 @@
+umar@numbat:~/Desktop/OS-LABS$ >logfile.log
+umar@numbat:~/Desktop/OS-LABS$ ls
+logfile.log
+
+umar@numbat:~/Desktop/OS-LABS$ date --
+Thu  8 May 12:03:51 UTC 2025
+
+umar@numbat:~/Desktop/OS-LABS$ who --
+umar     seat0        2025-05-08 11:47 (login screen)
+umar     tty2         2025-05-08 11:47 (tty2)
+
+umar@numbat:~/Desktop/OS-LABS$ whoami
+umar
+
+umar@numbat:~/Desktop/OS-LABS$ tty --
+/dev/pts/0
+
+umar@numbat:~/Desktop/OS-LABS$ logname --
+umar
+
+umar@numbat:~/Desktop/OS-LABS$ uname --
+Linux
+
+umar@numbat:~/Desktop/OS-LABS$ lscpu
+Architecture:             aarch64
+  CPU op-mode(s):         64-bit
+  Byte Order:             Little Endian
+CPU(s):                   4
+  On-line CPU(s) list:    0-3
+Vendor ID:                Apple
+  Model name:             -
+    Model:                0
+    Thread(s) per core:   1
+    Core(s) per cluster:  4
+    Socket(s):            -
+    Cluster(s):           1
+    Stepping:             0x0
+    BogoMIPS:             48.00
+    Flags:                fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp 
+                          cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdf
+                          hm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint 
+                          bf16
+NUMA:                     
+  NUMA node(s):           1
+  NUMA node0 CPU(s):      0-3
+Vulnerabilities:          
+  Gather data sampling:   Not affected
+  Itlb multihit:          Not affected
+  L1tf:                   Not affected
+  Mds:                    Not affected
+  Meltdown:               Not affected
+  Mmio stale data:        Not affected
+  Reg file data sampling: Not affected
+  Retbleed:               Not affected
+  Spec rstack overflow:   Not affected
+  Spec store bypass:      Mitigation; Speculative Store Bypass disabled via prctl
+  Spectre v1:             Mitigation; __user pointer sanitization
+  Spectre v2:             Not affected
+  Srbds:                  Not affected
+  Tsx async abort:        Not affected
+
+
+umar@numbat:~/Desktop/OS-LABS$ lshw 
+WARNING: you should run this program as super-user.
+numbat                      
+    description: Computer
+    product: linux,dummy-virt
+    width: 64 bits
+    capabilities: smp cp15_barrier swp tagged_addr_disabled
+  *-core
+       description: Motherboard
+       physical id: 0
+     *-cpu:0
+          description: CPU
+          product: cpu
+          physical id: 4
+          bus info: cpu@0
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint bf16
+     *-cpu:1
+          description: CPU
+          product: cpu
+          physical id: 5
+          bus info: cpu@1
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint bf16
+     *-cpu:2
+          description: CPU
+          product: cpu
+          physical id: 7
+          bus info: cpu@2
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint bf16
+     *-cpu:3
+          description: CPU
+          product: cpu
+          physical id: 9
+          bus info: cpu@3
+          capabilities: fp asimd evtstrm aes pmull sha1 sha2 crc32 atomics fphp asimdhp cpuid asimdrdm jscvt fcma lrcpc dcpop sha3 asimddp sha512 asimdfhm dit uscat ilrcpc flagm ssbs sb paca pacg dcpodp flagm2 frint bf16
+     *-cpu:4 DISABLED
+          description: CPU
+          product: socket0
+          physical id: a
+          bus info: cpu@4
+     *-memory
+          description: System memory
+          physical id: b
+          size: 4GiB
+     *-display
+          description: VGA compatible controller
+          product: VMware
+          vendor: VMware
+          physical id: 0
+          bus info: pci@0000:00:00.0
+          logical name: /dev/fb0
+          version: 00
+          width: 32 bits
+          clock: 33MHz
+          capabilities: vga_controller bus_master fb
+          configuration: depth=32 driver=vmwgfx latency=64 resolution=1280,800
+          resources: irq:18 memory:8400000-87fffff memory:10000000-17ffffff
+     *-generic
+          description: System peripheral
+          product: VirtualBox mouse integration
+          vendor: InnoTek Systemberatung GmbH
+          physical id: 1
+          bus info: pci@0000:00:01.0
+          logical name: input3
+          logical name: /dev/input/event3
+          logical name: /dev/input/js1
+          logical name: /dev/input/mouse1
+          version: 00
+          width: 32 bits
+          clock: 33MHz
+          capabilities: pci
+          configuration: driver=vboxguest latency=0
+          resources: irq:19 ioport:1000(size=32) memory:8800000-8bfffff memory:8136000-8136fff
+     *-multimedia
+          description: Audio device
+          product: 82801FB/FBM/FR/FW/FRW (ICH6 Family) High Definition Audio Controller
+          vendor: Intel Corporation
+          physical id: 2
+          bus info: pci@0000:00:02.0
+          logical name: card0
+          logical name: /dev/snd/controlC0
+          logical name: /dev/snd/hwC0D0
+          logical name: /dev/snd/pcmC0D0c
+          logical name: /dev/snd/pcmC0D0p
+          logical name: /dev/snd/pcmC0D1c
+          logical name: /dev/snd/pcmC0D1p
+          logical name: /dev/snd/pcmC0D2c
+          version: 01
+          width: 32 bits
+          clock: 33MHz
+          capabilities: bus_master cap_list
+          configuration: driver=snd_hda_intel latency=64
+          resources: irq:17 memory:8130000-8133fff
+        *-input:0
+             product: HDA Intel Mic
+             physical id: 0
+             logical name: input4
+             logical name: /dev/input/event4
+        *-input:1
+             product: HDA Intel Line
+             physical id: 1
+             logical name: input5
+             logical name: /dev/input/event5
+        *-input:2
+             product: HDA Intel Speaker Front
+             physical id: 2
+             logical name: input6
+             logical name: /dev/input/event6
+        *-input:3
+             product: HDA Intel Speaker CLFE
+             physical id: 3
+             logical name: input7
+             logical name: /dev/input/event7
+        *-input:4
+             product: HDA Intel Front Headphone
+             physical id: 4
+             logical name: input8
+             logical name: /dev/input/event8
+        *-input:5
+             product: HDA Intel SPDIF In
+             physical id: 5
+             logical name: input9
+             logical name: /dev/input/event9
+     *-scsi
+          description: SCSI storage controller
+          product: Virtio 1.0 SCSI
+          vendor: Red Hat, Inc.
+          physical id: 3
+          bus info: pci@0000:00:03.0
+          version: 01
+          width: 32 bits
+          clock: 33MHz
+          capabilities: scsi bus_master cap_list
+          configuration: driver=virtio-pci latency=64
+          resources: irq:14 memory:8134000-8135fff
+        *-virtio0
+             description: Virtual I/O device
+             physical id: 0
+             bus info: virtio@0
+             logical name: scsi0
+             configuration: driver=virtio_scsi
+           *-cdrom
+                description: SCSI CD-ROM
+                product: CD-ROM
+                vendor: VBOX
+                physical id: 0.1.0
+                bus info: scsi@0:0.1.0
+                logical name: /dev/cdrom
+                logical name: /dev/sr0
+                logical name: /media/umar/VBox_GAs_7.1.8
+                version: 1.0
+                capabilities: removable audio
+                configuration: ansiversion=5 mount.fstype=iso9660 mount.options=ro,nosuid,nodev,relatime,nojoliet,check=s,map=n,blocksize=2048,uid=1000,gid=1000,dmode=500,fmode=400,iocharset=utf8 state=mounted status=ready
+              *-medium
+                   physical id: 0
+                   logical name: /dev/cdrom
+                   logical name: /media/umar/VBox_GAs_7.1.8
+                   configuration: mount.fstype=iso9660 mount.options=ro,nosuid,nodev,relatime,nojoliet,check=s,map=n,blocksize=2048,uid=1000,gid=1000,dmode=500,fmode=400,iocharset=utf8 state=mounted
+     *-usb
+          description: USB controller
+          product: 7 Series/C210 Series Chipset Family USB xHCI Host Controller
+          vendor: Intel Corporation
+          physical id: 6
+          bus info: pci@0000:00:06.0
+          version: 00
+          width: 32 bits
+          clock: 33MHz
+          capabilities: xhci bus_master cap_list
+          configuration: driver=xhci_hcd latency=64
+          resources: irq:17 memory:8120000-812ffff
+     *-network
+          description: Ethernet interface
+          product: 82540EM Gigabit Ethernet Controller
+          vendor: Intel Corporation
+          physical id: 8
+          bus info: pci@0000:00:08.0
+          logical name: enp0s8
+          version: 02
+          serial: 08:00:27:af:6a:07
+          size: 1Gbit/s
+          capacity: 1Gbit/s
+          width: 32 bits
+          clock: 66MHz
+          capabilities: bus_master cap_list ethernet physical tp 10bt 10bt-fd 100bt 100bt-fd 1000bt-fd autonegotiation
+          configuration: autonegotiation=on broadcast=yes driver=e1000 driverversion=6.8.0-58-generic duplex=full ip=10.0.2.15 latency=64 link=yes mingnt=255 multicast=yes port=twisted pair speed=1Gbit/s
+          resources: irq:18 memory:8100000-811ffff ioport:1020(size=8)
+  *-input:0
+       product: gpio-keys
+       physical id: 1
+       logical name: input0
+       logical name: /dev/input/event0
+       capabilities: platform
+  *-input:1
+       product: VirtualBox USB Keyboard
+       physical id: 2
+       logical name: input1
+       logical name: /dev/input/event1
+       logical name: input1::capslock
+       logical name: input1::compose
+       logical name: input1::kana
+       logical name: input1::numlock
+       logical name: input1::scrolllock
+       capabilities: usb
+  *-input:2
+       product: VirtualBox USB Tablet
+       physical id: 3
+       logical name: input2
+       logical name: /dev/input/event2
+       logical name: /dev/input/js0
+       logical name: /dev/input/mouse0
+       capabilities: usb
+WARNING: output may be incomplete or inaccurate, you should run this program as super-user
+
+
+**Работа с файлами
+
+
+umar@numbat:~/Desktop/OS-LABS$ ls
+logfile.log  test1.txt  test2.txt
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l
+total 0
+-rw-rw-r-- 1 umar umar 0 May  8 12:01 logfile.log
+-rw-rw-r-- 1 umar umar 0 May  8 12:26 test1.txt
+-rw-rw-r-- 1 umar umar 0 May  8 12:26 test2.txt
+
+umar@numbat:~/Desktop/OS-LABS$ cat test1.txt
+My name is Umar
+
+umar@numbat:~/Desktop/OS-LABS$ cat test2.txt
+Anna
+
+umar@numbat:~/Desktop/OS-LABS$ cat test1.txt test2.txt
+My name is Umar
+Anna
+
+
+**Операции с файлами Переименование файла осуществляется пересылкой его от одного имени к другому (mv -- move):
+
+umar@numbat:~/Desktop/OS-LABS$ mv test1.txt aaa
+umar@numbat:~/Desktop/OS-LABS$ ls
+aaa  logfile.log  test2.txt
+umar@numbat:~/Desktop/OS-LABS$ 
+
+umar@numbat:~/Desktop/OS-LABS$ cat test1.txt
+cat: test1.txt: No such file or directory
+
+
+**Копирование файлов осуществляется с помощью команды cp:
+
+umar@numbat:~/Desktop/OS-LABS$ cp aaa bbb
+umar@numbat:~/Desktop/OS-LABS$ ls
+aaa  bbb  logfile.log  test2.txt
+
 
