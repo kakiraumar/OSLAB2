@@ -366,3 +366,307 @@ umar@numbat:~/Desktop/OS-LABS$ rmdir sub-dir/
 
 
 
+umar@numbat:~/Desktop/OS-LABS$ gcc prog.c -o prog.o
+umar@numbat:~/Desktop/OS-LABS$ ls
+a.out  logfile.log  prog.c  prog.o
+umar@numbat:~/Desktop/OS-LABS$ gcc prog.c -o prog
+umar@numbat:~/Desktop/OS-LABS$ ls
+a.out  logfile.log  prog  prog.c  prog.o
+umar@numbat:~/Desktop/OS-LABS$ ./prog
+Hello, everybody ! 
+
+umar@numbat:~/Desktop/OS-LABS$ 
+umar@numbat:~/Desktop/OS-LABS$ touch my_open.c
+umar@numbat:~/Desktop/OS-LABS$ gcc my_open.c -o my_open
+umar@numbat:~/Desktop/OS-LABS$ ls
+a.out  logfile.log  my_open  my_open.c  prog  prog.c  prog.o
+umar@numbat:~/Desktop/OS-LABS$ ./my_open logfile.log 
+./my_open: файл logfile.log открыт
+umar@numbat:~/Desktop/OS-LABS$ 
+
+
+umar@numbat:~/Desktop/OS-LABS$ ./file2 || ./new_prog
+new_file.txt
+
+umar@numbat:~/Desktop/OS-LABS$ ./file2 | ./new_prog
+./new_prog: successfully opened new_file.txt
+
+umar@numbat:~/Desktop/OS-LABS$ ./file2 && ./new_prog
+new_file.txt
+new_file.txt
+./new_prog: successfully opened new_file.txt
+
+
+IV. Изучение команд и утилит обработки текстов.
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l /tmp | grep '^d'
+drwx------ 3 root root 4096 May 10 11:13 snap-private-tmp
+drwx------ 3 root root 4096 May 10 11:12 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-colord.service-2hldii
+drwx------ 3 root root 4096 May 10 11:19 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-fwupd.service-LoJlXs
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-ModemManager.service-hwlGjy
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-polkit.service-jq8mds
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-power-profiles-daemon.service-0qCbOn
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-switcheroo-control.service-P8uUFL
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-logind.service-kZqIz6
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-oomd.service-x53GLz
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-resolved.service-93a4Hg
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-timesyncd.service-UVoRH8
+drwx------ 3 root root 4096 May 10 11:12 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-upower.service-YaAUBi
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l /tmp | grep ' root ' 
+drwx------ 3 root root 4096 May 10 11:13 snap-private-tmp
+drwx------ 3 root root 4096 May 10 11:12 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-colord.service-2hldii
+drwx------ 3 root root 4096 May 10 11:19 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-fwupd.service-LoJlXs
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-ModemManager.service-hwlGjy
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-polkit.service-jq8mds
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-power-profiles-daemon.service-0qCbOn
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-switcheroo-control.service-P8uUFL
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-logind.service-kZqIz6
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-oomd.service-x53GLz
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-resolved.service-93a4Hg
+drwx------ 3 root root 4096 May 10 11:10 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-systemd-timesyncd.service-UVoRH8
+drwx------ 3 root root 4096 May 10 11:12 systemd-private-87a17a7f806e4ba883956c85b64cdd3d-upower.service-YaAUBi
+
+umar@numbat:~/Desktop/OS-LABS$ who | grep -E '\(:[0-9]+\)' | cut -d ' ' -f 1 | id -u
+1000
+umar@numbat:~/Desktop/OS-LABS$ whoami | cut -d ' ' -f 1
+umar
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l | tr '[:lower:]' '[:upper:]'
+TOTAL 104
+-RWXRWXR-X 1 UMAR UMAR 70312 MAY  8 12:54 A.OUT
+-RWXRWXR-X 1 UMAR UMAR 70312 MAY 10 11:40 FILE2
+-RW-RW-R-- 1 UMAR UMAR   112 MAY 10 11:40 FILE2.C
+-RW-RW-R-- 1 UMAR UMAR     0 MAY  8 12:01 LOGFILE.LOG
+-RWXRWXR-X 1 UMAR UMAR 70440 MAY 10 11:25 MY_OPEN
+-RW-RW-R-- 1 UMAR UMAR   545 MAY 10 11:25 MY_OPEN.C
+-RW-RW-R-- 1 UMAR UMAR     7 MAY 10 11:37 NEW_FILE.TXT
+-RWXRWXR-X 1 UMAR UMAR 70712 MAY 10 11:41 NEW_PROG
+-RW-RW-R-- 1 UMAR UMAR   770 MAY 10 11:30 NEW_PROG.C
+-RWXRWXR-X 1 UMAR UMAR 70312 MAY 10 11:18 PROG
+-RW-RW-R-- 1 UMAR UMAR    67 MAY  8 12:54 PROG.C
+-RW-RW-R-- 1 UMAR UMAR  1616 MAY 10 11:17 PROG.O
+
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l | sort -k 9
+total 104
+-rwxrwxr-x 1 umar umar 70312 May  8 12:54 a.out
+-rwxrwxr-x 1 umar umar 70312 May 10 11:40 file2
+-rw-rw-r-- 1 umar umar   112 May 10 11:40 file2.c
+-rw-rw-r-- 1 umar umar     0 May  8 12:01 logfile.log
+-rwxrwxr-x 1 umar umar 70440 May 10 11:25 my_open
+-rw-rw-r-- 1 umar umar   545 May 10 11:25 my_open.c
+-rw-rw-r-- 1 umar umar     7 May 10 11:37 new_file.txt
+-rwxrwxr-x 1 umar umar 70712 May 10 11:41 new_prog
+-rw-rw-r-- 1 umar umar   770 May 10 11:30 new_prog.c
+-rwxrwxr-x 1 umar umar 70312 May 10 11:18 prog
+-rw-rw-r-- 1 umar umar    67 May  8 12:54 prog.c
+-rw-rw-r-- 1 umar umar  1616 May 10 11:17 prog.o
+
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l | sort -k 5 -n
+-rw-rw-r-- 1 umar umar     0 May  8 12:01 logfile.log
+total 104
+-rw-rw-r-- 1 umar umar     7 May 10 11:37 new_file.txt
+-rw-rw-r-- 1 umar umar    67 May  8 12:54 prog.c
+-rw-rw-r-- 1 umar umar   112 May 10 11:40 file2.c
+-rw-rw-r-- 1 umar umar   545 May 10 11:25 my_open.c
+-rw-rw-r-- 1 umar umar   770 May 10 11:30 new_prog.c
+-rw-rw-r-- 1 umar umar  1616 May 10 11:17 prog.o
+-rwxrwxr-x 1 umar umar 70312 May 10 11:18 prog
+-rwxrwxr-x 1 umar umar 70312 May 10 11:40 file2
+-rwxrwxr-x 1 umar umar 70312 May  8 12:54 a.out
+-rwxrwxr-x 1 umar umar 70440 May 10 11:25 my_open
+-rwxrwxr-x 1 umar umar 70712 May 10 11:41 new_prog
+
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l | sort -k 5 -nr
+-rwxrwxr-x 1 umar umar 70712 May 10 11:41 new_prog
+-rwxrwxr-x 1 umar umar 70440 May 10 11:25 my_open
+-rwxrwxr-x 1 umar umar 70312 May  8 12:54 a.out
+-rwxrwxr-x 1 umar umar 70312 May 10 11:40 file2
+-rwxrwxr-x 1 umar umar 70312 May 10 11:18 prog
+-rw-rw-r-- 1 umar umar  1616 May 10 11:17 prog.o
+-rw-rw-r-- 1 umar umar   770 May 10 11:30 new_prog.c
+-rw-rw-r-- 1 umar umar   545 May 10 11:25 my_open.c
+-rw-rw-r-- 1 umar umar   112 May 10 11:40 file2.c
+-rw-rw-r-- 1 umar umar    67 May  8 12:54 prog.c
+-rw-rw-r-- 1 umar umar     7 May 10 11:37 new_file.txt
+total 104
+-rw-rw-r-- 1 umar umar     0 May  8 12:01 logfile.log
+
+
+5)
+
+umar@numbat:~/Desktop/OS-LABS$ ls -l /usr/bin | tr -s ' ' | cut -d ' ' -f 5 | sort -n | uniq -d
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+16
+17
+18
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+41
+47
+50
+53
+59
+215
+220
+227
+274
+350
+352
+785
+1003
+1182
+1207
+1622
+2346
+2453
+4527
+5656
+5725
+8360
+45593
+67512
+67520
+67528
+67592
+67608
+67656
+67664
+67672
+67680
+67688
+67696
+67704
+67736
+67744
+67752
+67760
+67768
+67776
+67784
+67792
+67800
+67808
+67816
+67824
+67832
+67840
+67848
+67856
+67864
+67872
+67880
+67888
+67896
+67904
+67912
+67928
+67944
+67952
+67960
+67968
+67976
+67984
+67992
+68000
+68008
+68016
+68024
+68040
+68048
+68056
+68064
+68072
+68080
+68088
+68096
+68104
+68120
+68128
+68136
+68152
+68160
+68192
+68200
+68256
+68264
+68280
+68312
+68320
+68328
+68368
+68376
+68392
+68480
+68520
+68568
+68624
+68632
+68696
+68752
+68768
+68944
+69080
+69472
+70208
+133200
+133280
+133288
+133320
+133336
+133376
+133384
+133416
+133424
+133440
+133480
+133488
+133496
+133688
+133760
+134208
+198792
+198824
+198880
+199288
+199464
+264432
+264648
+531488
+597024
+990040
+3942240
+
+
+
+
+
