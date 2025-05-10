@@ -667,6 +667,46 @@ umar@numbat:~/Desktop/OS-LABS$ ls -l /usr/bin | tr -s ' ' | cut -d ' ' -f 5 | so
 3942240
 
 
+umar@numbat:~/Desktop/OS-LABS$ cmp prog.c prog.o
+prog.c prog.o differ: byte 1, line 1
+
+umar@numbat:~$ cd Desktop/OS-LABS/
+umar@numbat:~/Desktop/OS-LABS$ for c_file in *.c; do
+    o_file="${c_file%.c}.o"
+    if [ -f "$o_file" ]; then
+        echo "Comparing $c_file and $o_file:"
+        cmp "$c_file" "$o_file" || echo "Files differ."
+    fi
+done
+Comparing prog.c and prog.o:
+prog.c prog.o differ: byte 1, line 1
+Files differ.
+umar@numbat:~/Desktop/OS-LABS$  cmp -s prog.c prog.o && echo "Identical" || echo "Different"
+Different
+umar@numbat:~/Desktop/OS-LABS$ diff -e prog.c my_open.c > eqv
+umar@numbat:~/Desktop/OS-LABS$ ls
+a.out  file2    logfile.log  my_open.c     new_prog    prog    prog.o
+eqv    file2.c  my_open      new_file.txt  new_prog.c  prog.c
+umar@numbat:~/Desktop/OS-LABS$ cat eqv 
+2,4c
+
+int main(int argc, char *argv[]) {
+    if (argc > 1) {
+        FILE *file = fopen(argv[1], "r");
+        if (file == NULL) {
+            printf("%s: неудача при попытке открыть файл %s\n", argv[0], argv[1]);
+        } else {
+            printf("%s: файл %s открыт\n", argv[0], argv[1]);
+            fclose(file);  // Don't forget to close the file if opened successfully
+        }
+    } else {
+        printf("открываемый файл не указан\n");
+    }
+    return 0;
+.
+
+
+
 
 
 
